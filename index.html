@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ClearPath Mortgage | Ontario Mortgage Brokers</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { 50:'#eef2f9', 100:'#d5dfef', 200:'#abc0df', 300:'#7a9acb', 400:'#4f76b6', 500:'#2d559a', 600:'#1a3f7f', 700:'#132e62', 800:'#0d2049', 900:'#081532' },
+          gold: { 300:'#f5d98a', 400:'#efc34c', 500:'#e0a800', 600:'#b88700', 700:'#8f6800' },
+        },
+        fontFamily: {
+          display: ['"Playfair Display"', 'Georgia', 'serif'],
+          body: ['"DM Sans"', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  * { font-family: 'DM Sans', sans-serif; }
+  h1,h2,.font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+  html { scroll-behavior: smooth; }
+
+  .hero-bg {
+    background: linear-gradient(135deg, #081532 0%, #132e62 40%, #1a3f7f 70%, #0d2049 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0; right: 0;
+    height: 80px;
+    background: white;
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .gold-line { width: 64px; height: 3px; background: #e0a800; border-radius: 2px; }
+
+  .lender-logo-box {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 18px 28px;
+    min-width: 110px;
+    font-weight: 700;
+    font-size: 13px;
+    color: #64748b;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .step-connector { height: 2px; background: linear-gradient(90deg, #e0a800, #efc34c); flex: 1; }
+
+  .calc-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+    background: white;
+  }
+  .calc-input:focus { border-color: #2d559a; box-shadow: 0 0 0 3px rgba(45,85,154,0.12); }
+
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+    background: white;
+  }
+  .form-input:focus { border-color: #1a3f7f; box-shadow: 0 0 0 3px rgba(26,63,127,0.12); }
+
+  .audience-card {
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 28px 24px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: white;
+    text-align: center;
+  }
+  .audience-card:hover, .audience-card.active {
+    border-color: #1a3f7f;
+    background: #eef2f9;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(19,46,98,0.15);
+  }
+  .audience-card.active { border-color: #e0a800; background: #fffbea; }
+
+  .progress-step { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+  .progress-step.done { background: #e0a800; color: white; }
+  .progress-step.active { background: #1a3f7f; color: white; border: 3px solid #abc0df; }
+  .progress-step.pending { background: #e2e8f0; color: #94a3b8; }
+
+  .btn-gold {
+    background: linear-gradient(135deg, #e0a800, #efc34c);
+    color: #081532;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 14px 32px;
+    transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 4px 18px rgba(224,168,0,0.3);
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(224,168,0,0.4); }
+
+  .btn-navy {
+    background: #1a3f7f;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 12px 28px;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+  }
+  .btn-navy:hover { background: #132e62; transform: translateY(-1px); }
+
+  .testimonial-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: 0 4px 24px rgba(19,46,98,0.08);
+    border: 1px solid #e2e8f0;
+  }
+
+  .process-card {
+    background: white;
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(19,46,98,0.06);
+    border: 1px solid #e2e8f0;
+    position: relative;
+  }
+  .process-num {
+    width: 56px; height: 56px;
+    background: linear-gradient(135deg, #e0a800, #efc34c);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 800;
+    color: #081532;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 16px rgba(224,168,0,0.3);
+  }
+
+  .trust-badge {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    font-size: 12px; color: #cbd5e1;
+  }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+  .fade-up { animation: fadeUp 0.6s ease forwards; }
+  .fade-up-delay-1 { animation-delay: 0.15s; opacity: 0; animation-fill-mode: forwards; }
+  .fade-up-delay-2 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; }
+
+  /* Range slider */
+  input[type=range] { -webkit-appearance: none; appearance: none; height: 6px; background: #e2e8f0; border-radius: 3px; outline: none; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #1a3f7f; cursor: pointer; box-shadow: 0 2px 8px rgba(26,63,127,0.3); }
+</style>
+</head>
+<body class="bg-white text-navy-900">
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-navy-100 shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-18">
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3 group">
+      <div class="w-9 h-9 rounded-lg bg-navy-800 flex items-center justify-center shadow">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 10.5L12 3L21 10.5V20C21 20.55 20.55 21 20 21H15V15H9V21H4C3.45 21 3 20.55 3 20V10.5Z" fill="#e0a800"/>
+        </svg>
+      </div>
+      <div class="leading-none">
+        <span class="font-display font-bold text-navy-900 text-lg tracking-tight">ClearPath</span>
+        <span class="block text-[10px] font-body text-navy-500 tracking-widest uppercase">Mortgage</span>
+      </div>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-7 text-sm font-medium text-navy-700">
+      <a href="#how-it-works" class="hover:text-navy-900 transition-colors">How It Works</a>
+      <a href="#calculator" class="hover:text-navy-900 transition-colors">Calculator</a>
+      <a href="#testimonials" class="hover:text-navy-900 transition-colors">Reviews</a>
+      <a href="#form-section" class="hover:text-navy-900 transition-colors">Apply</a>
+    </div>
+
+    <!-- CTA -->
+    <a href="#form-section" class="btn-gold text-sm py-2.5 px-5 hidden sm:inline-flex">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Get Pre-Approved
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button id="mobile-toggle" class="md:hidden p-2 rounded-lg hover:bg-navy-50" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a3f7f" stroke-width="2.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-navy-100 px-4 pb-4">
+    <div class="flex flex-col gap-3 pt-4 text-sm font-medium text-navy-700">
+      <a href="#how-it-works" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="py-2 border-b border-navy-50">How It Works</a>
+      <a href="#calculator" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="py-2 border-b border-navy-50">Calculator</a>
+      <a href="#testimonials" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="py-2 border-b border-navy-50">Reviews</a>
+      <a href="#form-section" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="btn-gold text-center mt-2">Get Pre-Approved</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero-bg pt-28 pb-36 sm:pt-36 sm:pb-44 relative">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+    <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm text-gold-300 font-medium mb-6 fade-up">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      FSRA Licensed · Ontario Mortgage Broker
+    </div>
+
+    <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-tight mb-5 fade-up fade-up-delay-1">
+      Your Best Rate.<br/>
+      <span class="text-gold-400">Your Home. Faster.</span>
+    </h1>
+
+    <p class="text-navy-200 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed fade-up fade-up-delay-2">
+      We shop over 50 lenders so you don't have to. Whether you're buying your first home in Ontario or renewing your mortgage, ClearPath gets you approved — and in your home — with confidence.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-up" style="animation-delay:0.45s;opacity:0;animation-fill-mode:forwards;">
+      <a href="#form-section" class="btn-gold text-base w-full sm:w-auto justify-center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Get Pre-Approved — It's Free
+      </a>
+      <a href="#calculator" class="flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium transition-colors">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="8" y2="6"/><line x1="12" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg>
+        Try our mortgage calculator
+      </a>
+    </div>
+
+    <!-- Social proof bar -->
+    <div class="flex flex-wrap justify-center gap-6 mt-14 text-sm text-navy-300">
+      <div class="flex items-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span><strong class="text-white">4.9/5</strong> Average Rating</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0a800" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span><strong class="text-white">1,200+</strong> Families Helped</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0a800" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        <span><strong class="text-white">50+</strong> Lenders Compared</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AUDIENCE SELECTOR ===================== -->
+<section class="py-16 sm:py-20 bg-white" id="audience">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-10">
+      <p class="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Who We Help</p>
+      <h2 class="font-display text-3xl sm:text-4xl text-navy-900">What Brings You Here?</h2>
+      <div class="gold-line mx-auto mt-4"></div>
+      <p class="text-navy-600 mt-4 max-w-xl mx-auto">Select your situation and we'll show you how we can help.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      <!-- First Time Buyer -->
+      <div class="audience-card" onclick="selectAudience(this, 'first-time')">
+        <div class="w-14 h-14 rounded-2xl bg-navy-50 flex items-center justify-center mx-auto mb-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3f7f" stroke-width="1.8"><path d="M3 10.5L12 3L21 10.5V20C21 20.55 20.55 21 20 21H15V15H9V21H4C3.45 21 3 20.55 3 20V10.5Z"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-navy-900 font-bold mb-2">First Time Buyer</h3>
+        <p class="text-navy-600 text-sm leading-relaxed">Step-by-step guidance from pre-approval to keys in hand. We'll walk you through every Ontario-specific incentive available.</p>
+        <div class="mt-4 text-xs font-semibold text-gold-600 tracking-wide">FHSA · RRSP Plan · Land Transfer Rebate →</div>
+      </div>
+
+      <!-- Refinancing -->
+      <div class="audience-card" onclick="selectAudience(this, 'refinancing')">
+        <div class="w-14 h-14 rounded-2xl bg-navy-50 flex items-center justify-center mx-auto mb-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3f7f" stroke-width="1.8"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-navy-900 font-bold mb-2">Refinancing</h3>
+        <p class="text-navy-600 text-sm leading-relaxed">Tap into your home equity or lower your monthly payments. We'll find you a better rate than your bank is offering.</p>
+        <div class="mt-4 text-xs font-semibold text-gold-600 tracking-wide">Lower Payments · Debt Consolidation →</div>
+      </div>
+
+      <!-- Investment -->
+      <div class="audience-card" onclick="selectAudience(this, 'investment')">
+        <div class="w-14 h-14 rounded-2xl bg-navy-50 flex items-center justify-center mx-auto mb-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3f7f" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><polyline points="7 10 12 7 15 9 21 6"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-navy-900 font-bold mb-2">Property Investment</h3>
+        <p class="text-navy-600 text-sm leading-relaxed">Grow your Ontario portfolio with competitive rental property financing. Access lenders that specialize in investor clients.</p>
+        <div class="mt-4 text-xs font-semibold text-gold-600 tracking-wide">Rental Properties · BRRRR · Multi-Unit →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MULTI-STEP FORM ===================== -->
+<section id="form-section" class="py-16 sm:py-20 bg-navy-50">
+  <div class="max-w-xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-10">
+      <p class="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Free Pre-Approval</p>
+      <h2 class="font-display text-3xl sm:text-4xl text-navy-900">Apply in Under 2 Minutes</h2>
+      <div class="gold-line mx-auto mt-4"></div>
+      <p class="text-navy-600 mt-4 text-sm">No credit impact. No obligation. A mortgage advisor will contact you within 5 minutes.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-xl border border-navy-100 overflow-hidden">
+      <!-- Progress bar -->
+      <div id="progress-bar-wrap" class="px-8 pt-8 pb-4">
+        <div class="flex items-center gap-2">
+          <div class="progress-step active" id="ps1">1</div>
+          <div class="h-0.5 flex-1 bg-navy-100" id="pc1"></div>
+          <div class="progress-step pending" id="ps2">2</div>
+          <div class="h-0.5 flex-1 bg-navy-100" id="pc2"></div>
+          <div class="progress-step pending" id="ps3">3</div>
+          <div class="h-0.5 flex-1 bg-navy-100" id="pc3"></div>
+          <div class="progress-step pending" id="ps4">4</div>
+        </div>
+        <div class="flex justify-between mt-1.5 text-xs text-navy-400 font-medium px-1">
+          <span>Goal</span><span>Property</span><span>Employment</span><span>Contact</span>
+        </div>
+      </div>
+
+      <div class="px-8 pb-8">
+        <!-- Step 1 -->
+        <div id="step1" class="form-step">
+          <h3 class="font-display text-xl text-navy-900 font-bold mb-1">What's your mortgage goal?</h3>
+          <p class="text-navy-500 text-sm mb-6">We'll match you with the right lenders and products.</p>
+          <div class="grid grid-cols-1 gap-3">
+            <label class="option-btn flex items-center gap-4 p-4 border-2 border-navy-100 rounded-xl cursor-pointer hover:border-navy-400 transition-colors has-[:checked]:border-gold-500 has-[:checked]:bg-gold-50">
+              <input type="radio" name="goal" value="purchase" class="hidden" onchange="markOption(this)">
+              <div class="w-10 h-10 rounded-lg bg-navy-50 flex items-center justify-center flex-shrink-0">🏠</div>
+              <div><div class="font-semibold text-navy-900 text-sm">Buy a Home</div><div class="text-xs text-navy-500 mt-0.5">Purchase a new property in Ontario</div></div>
+            </label>
+            <label class="option-btn flex items-center gap-4 p-4 border-2 border-navy-100 rounded-xl cursor-pointer hover:border-navy-400 transition-colors has-[:checked]:border-gold-500 has-[:checked]:bg-gold-50">
+              <input type="radio" name="goal" value="renew" class="hidden" onchange="markOption(this)">
+              <div class="w-10 h-10 rounded-lg bg-navy-50 flex items-center justify-center flex-shrink-0">🔄</div>
+              <div><div class="font-semibold text-navy-900 text-sm">Renew or Refinance</div><div class="text-xs text-navy-500 mt-0.5">Get a better rate on your existing mortgage</div></div>
+            </label>
+            <label class="option-btn flex items-center gap-4 p-4 border-2 border-navy-100 rounded-xl cursor-pointer hover:border-navy-400 transition-colors has-[:checked]:border-gold-500 has-[:checked]:bg-gold-50">
+              <input type="radio" name="goal" value="invest" class="hidden" onchange="markOption(this)">
+              <div class="w-10 h-10 rounded-lg bg-navy-50 flex items-center justify-center flex-shrink-0">📈</div>
+              <div><div class="font-semibold text-navy-900 text-sm">Investment Property</div><div class="text-xs text-navy-500 mt-0.5">Finance a rental or investment property</div></div>
+            </label>
+            <label class="option-btn flex items-center gap-4 p-4 border-2 border-navy-100 rounded-xl cursor-pointer hover:border-navy-400 transition-colors has-[:checked]:border-gold-500 has-[:checked]:bg-gold-50">
+              <input type="radio" name="goal" value="heloc" class="hidden" onchange="markOption(this)">
+              <div class="w-10 h-10 rounded-lg bg-navy-50 flex items-center justify-center flex-shrink-0">💳</div>
+              <div><div class="font-semibold text-navy-900 text-sm">Access Home Equity (HELOC)</div><div class="text-xs text-navy-500 mt-0.5">Use your equity for renovations or debt consolidation</div></div>
+            </label>
+          </div>
+          <button class="btn-gold w-full mt-6 justify-center" onclick="nextStep(1)">Continue →</button>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="step2" class="form-step hidden">
+          <h3 class="font-display text-xl text-navy-900 font-bold mb-1">What's your estimated property value?</h3>
+          <p class="text-navy-500 text-sm mb-6">This helps us identify the right lenders and programs for you.</p>
+          <div class="grid grid-cols-1 gap-3">
+            <label class="option-btn flex items-center gap-4 p-4 border-2 border-navy-100 rounded-xl cursor-pointer hover:border-navy-400 transition-colors has-[:checked]:border-gold-500 has-[:checked]:bg-gold-50">
+              <input type="radio" name="propval" value="under-400k" class="hidden" onchange="markOption(this)">
+              <div class="font-semibold text-navy-900 text-sm">Under $400,000</div>
+            </label>
+            <label class="option-btn flex items-center gap-4 p-4 border-2 border-navy-100 rounded-xl cursor-pointer hover:border-navy-400 transition-colors has-[:checked]:border-gold-500 has-[:checked]:bg-gold-50">
+              <input type="radio" name="propval" value="400k-700k" class="hidden" onchange="markOption(this)">
+              <div class="font-semibold text-navy-900 text-sm">$400,000 – $700,000</div>
+            </label>
+            <label class="option-btn flex items-center gap-4 p-4 border-2 border-navy-100 rounded-xl cursor-pointer hover:border-navy-400 transition-colors has-[:checked]:border-gold-500 has-[:checked]:bg-gold-50">
+              <input type="radio" name="propval" value="700k-1m" class="hidden" onchange="markOption(this)">
+              <div class="font-semibold text-navy-900 text-sm">$700,000 – $1,000,000</div>
+            </label>
+            <label class="option-btn flex items-center gap-4 p-4 border-2 border-navy-100 rounded-xl cursor-pointer hover:border-navy-400 transition-colors has-[:checked]:border-gold-500 has-[:checked]:bg-gold-50">
+              <input type="radio" name="propval" value="over-1m" class="hidden" onchange="markOption(this)">
+              <div class="font-semibold text-navy-900 text-sm">Over $1,000,000</div>
+            </label>
+          </div>
+          <div class="flex gap-3 mt-6">
+            <button class="btn-navy flex-1" onclick="prevStep(2)">← Back</button>
+            <button class="btn-gold flex-1 justify-center" onclick="nextStep(2)">Continue →</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="step3" class="form-step hidden">
+          <h3 class="font-display text-xl text-navy-900 font-bold mb-1">What's your employment type?</h3>
+          <p class="text-navy-500 text-sm mb-6">We work with all income types — including self-employed Canadians.</p>
+          <div class="grid grid-cols-1 gap-3">
+            <label class="option-btn flex items-center gap-4 p-4 border-2 border-navy-100 rounded-xl cursor-pointer hover:border-navy-400 transition-colors has-[:checked]:border-gold-500 has-[:checked]:bg-gold-50">
+              <input type="radio" name="employment" value="employed" class="hidden" onchange="markOption(this)">
+              <div class="w-9 h-9 rounded-lg bg-navy-50 flex items-center justify-center flex-shrink-0 text-lg">💼</div>
+              <div><div class="font-semibold text-navy-900 text-sm">Salaried / Employed</div><div class="text-xs text-navy-500 mt-0.5">T4 employee with regular paycheque</div></div>
+            </label>
+            <label class="option-btn flex items-center gap-4 p-4 border-2 border-navy-100 rounded-xl cursor-pointer hover:border-navy-400 transition-colors has-[:checked]:border-gold-500 has-[:checked]:bg-gold-50">
+              <input type="radio" name="employment" value="self" class="hidden" onchange="markOption(this)">
+              <div class="w-9 h-9 rounded-lg bg-navy-50 flex items-center justify-center flex-shrink-0 text-lg">🧾</div>
+              <div><div class="font-semibold text-navy-900 text-sm">Self-Employed</div><div class="text-xs text-navy-500 mt-0.5">Business owner, contractor, or freelancer</div></div>
+            </label>
+            <label class="option-btn flex items-center gap-4 p-4 border-2 border-navy-100 rounded-xl cursor-pointer hover:border-navy-400 transition-colors has-[:checked]:border-gold-500 has-[:checked]:bg-gold-50">
+              <input type="radio" name="employment" value="retired" class="hidden" onchange="markOption(this)">
+              <div class="w-9 h-9 rounded-lg bg-navy-50 flex items-center justify-center flex-shrink-0 text-lg">🏖️</div>
+              <div><div class="font-semibold text-navy-900 text-sm">Retired / Pension Income</div><div class="text-xs text-navy-500 mt-0.5">CPP, OAS, company pension</div></div>
+            </label>
+            <label class="option-btn flex items-center gap-4 p-4 border-2 border-navy-100 rounded-xl cursor-pointer hover:border-navy-400 transition-colors has-[:checked]:border-gold-500 has-[:checked]:bg-gold-50">
+              <input type="radio" name="employment" value="other" class="hidden" onchange="markOption(this)">
+              <div class="w-9 h-9 rounded-lg bg-navy-50 flex items-center justify-center flex-shrink-0 text-lg">📋</div>
+              <div><div class="font-semibold text-navy-900 text-sm">Other Income Type</div><div class="text-xs text-navy-500 mt-0.5">Rental income, dividends, or blended</div></div>
+            </label>
+          </div>
+          <div class="flex gap-3 mt-6">
+            <button class="btn-navy flex-1" onclick="prevStep(3)">← Back</button>
+            <button class="btn-gold flex-1 justify-center" onclick="nextStep(3)">Continue →</button>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div id="step4" class="form-step hidden">
+          <h3 class="font-display text-xl text-navy-900 font-bold mb-1">How should we reach you?</h3>
+          <p class="text-navy-500 text-sm mb-6">A licensed advisor will contact you within 5 minutes during business hours.</p>
+          <div class="flex flex-col gap-4">
+            <div>
+              <label class="block text-sm font-semibold text-navy-800 mb-1.5">Full Name</label>
+              <input type="text" id="fname" class="form-input" placeholder="Jane Smith" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-navy-800 mb-1.5">Email Address</label>
+              <input type="email" id="femail" class="form-input" placeholder="jane@email.com" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-navy-800 mb-1.5">Phone Number</label>
+              <input type="tel" id="fphone" class="form-input" placeholder="(647) 000-0000" />
+            </div>
+            <div class="flex items-start gap-2 mt-1">
+              <input type="checkbox" id="consent" class="mt-0.5 w-4 h-4 accent-navy-700 cursor-pointer" />
+              <label for="consent" class="text-xs text-navy-500 leading-relaxed cursor-pointer">I consent to being contacted by a ClearPath Mortgage advisor. Your information is protected under PIPEDA and will never be sold to third parties.</label>
+            </div>
+          </div>
+          <div class="flex gap-3 mt-6">
+            <button class="btn-navy flex-1" onclick="prevStep(4)">← Back</button>
+            <button class="btn-gold flex-1 justify-center" onclick="submitForm()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Submit Application
+            </button>
+          </div>
+        </div>
+
+        <!-- Success -->
+        <div id="step-success" class="form-step hidden text-center py-8">
+          <div class="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-6">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl text-navy-900 font-bold mb-3">You're all set!</h3>
+          <p class="text-navy-700 text-base leading-relaxed mb-2">
+            <strong>Thank you — we will be in touch within 5 minutes.</strong>
+          </p>
+          <p class="text-navy-500 text-sm">Check your email for a confirmation. A licensed mortgage advisor will call you shortly to discuss your options.</p>
+          <div class="mt-6 p-4 bg-navy-50 rounded-xl text-sm text-navy-600 text-left">
+            <p class="font-semibold text-navy-800 mb-1">📋 What happens next?</p>
+            <ul class="space-y-1 text-navy-600">
+              <li>✓ Advisor reviews your profile</li>
+              <li>✓ We match you with top lender rates</li>
+              <li>✓ You receive a written rate summary</li>
+              <li>✓ No hard credit check at this stage</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUST / LENDERS ===================== -->
+<section id="testimonials" class="py-16 sm:py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <p class="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Trusted Partners</p>
+      <h2 class="font-display text-3xl sm:text-4xl text-navy-900">We Work With Canada's Top Lenders</h2>
+      <div class="gold-line mx-auto mt-4"></div>
+    </div>
+
+    <!-- Lender logos row -->
+    <div class="flex flex-wrap justify-center gap-4 mb-16">
+      <div class="lender-logo-box">RBC</div>
+      <div class="lender-logo-box">TD Bank</div>
+      <div class="lender-logo-box">Scotiabank</div>
+      <div class="lender-logo-box">BMO</div>
+      <div class="lender-logo-box">CIBC</div>
+      <div class="lender-logo-box">First National</div>
+      <div class="lender-logo-box">MCAP</div>
+      <div class="lender-logo-box">Merix</div>
+    </div>
+
+    <!-- Stars + count -->
+    <div class="text-center mb-10">
+      <div class="flex justify-center gap-1 mb-2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="text-navy-800 font-semibold">4.9 out of 5 — Based on 380+ client reviews</p>
+    </div>
+
+    <!-- Testimonial cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="testimonial-card">
+        <div class="flex gap-0.5 mb-4">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="text-navy-700 text-sm leading-relaxed mb-5">"As a first-time buyer in Mississauga, I was completely overwhelmed. ClearPath walked me through everything — the FHSA, the land transfer rebate — and got me a rate 0.4% lower than my bank offered. I closed in 28 days."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-navy-100 flex items-center justify-center font-bold text-navy-700">MK</div>
+          <div><div class="font-semibold text-navy-900 text-sm">Michael K.</div><div class="text-xs text-navy-500">Mississauga, ON · First Time Buyer</div></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="flex gap-0.5 mb-4">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="text-navy-700 text-sm leading-relaxed mb-5">"I'm self-employed and my bank kept declining me. ClearPath found a lender that understood my income structure and approved me within a week. The whole process was smooth and they explained every step. Highly recommend."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center font-bold text-gold-700">SL</div>
+          <div><div class="font-semibold text-navy-900 text-sm">Sandra L.</div><div class="text-xs text-navy-500">Hamilton, ON · Self-Employed Refinance</div></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="flex gap-0.5 mb-4">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e0a800"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="text-navy-700 text-sm leading-relaxed mb-5">"We were renewing our mortgage on a duplex in Ottawa and our bank wouldn't budge on rate. ClearPath got us 85 basis points lower through First National. That's saving us $340 a month. Unbelievable service."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-navy-100 flex items-center justify-center font-bold text-navy-700">DR</div>
+          <div><div class="font-semibold text-navy-900 text-sm">David & Rachel T.</div><div class="text-xs text-navy-500">Ottawa, ON · Investment Property</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section id="how-it-works" class="py-16 sm:py-20 bg-navy-50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <p class="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Simple Process</p>
+      <h2 class="font-display text-3xl sm:text-4xl text-navy-900">Three Steps to Your New Mortgage</h2>
+      <div class="gold-line mx-auto mt-4"></div>
+      <p class="text-navy-600 mt-4 max-w-xl mx-auto">We've helped over 1,200 Ontario families navigate the mortgage process. Here's how simple we make it.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 relative">
+      <!-- Connector lines (desktop only) -->
+      <div class="hidden sm:block absolute top-[44px] left-[calc(33%-8px)] right-[calc(33%-8px)] h-0.5 bg-gradient-to-r from-gold-400 to-gold-300 z-0"></div>
+
+      <div class="process-card relative z-10">
+        <div class="process-num">1</div>
+        <h3 class="font-display text-lg text-navy-900 font-bold mb-3">Apply in Minutes</h3>
+        <p class="text-navy-600 text-sm leading-relaxed">Complete our 4-step online form. No paperwork, no branch visit. Takes under 2 minutes and has no impact on your credit score.</p>
+        <div class="mt-4 inline-block text-xs bg-navy-50 text-navy-700 font-semibold px-3 py-1.5 rounded-full border border-navy-100">No credit check</div>
+      </div>
+
+      <div class="process-card relative z-10">
+        <div class="process-num">2</div>
+        <h3 class="font-display text-lg text-navy-900 font-bold mb-3">Get Approved</h3>
+        <p class="text-navy-600 text-sm leading-relaxed">Your dedicated advisor shops your file across 50+ lenders — banks, credit unions, and monoline lenders — to find your lowest rate.</p>
+        <div class="mt-4 inline-block text-xs bg-navy-50 text-navy-700 font-semibold px-3 py-1.5 rounded-full border border-navy-100">50+ lenders compared</div>
+      </div>
+
+      <div class="process-card relative z-10">
+        <div class="process-num">3</div>
+        <h3 class="font-display text-lg text-navy-900 font-bold mb-3">Get Funded</h3>
+        <p class="text-navy-600 text-sm leading-relaxed">We coordinate with your lawyer and lender from approval to close. Your keys — or funds — arrive on time, every time.</p>
+        <div class="mt-4 inline-block text-xs bg-navy-50 text-navy-700 font-semibold px-3 py-1.5 rounded-full border border-navy-100">End-to-end support</div>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="#form-section" class="btn-gold inline-flex">
+        Start My Application →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CALCULATOR ===================== -->
+<section id="calculator" class="py-16 sm:py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-10">
+      <p class="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Free Tool</p>
+      <h2 class="font-display text-3xl sm:text-4xl text-navy-900">Mortgage Payment Calculator</h2>
+      <div class="gold-line mx-auto mt-4"></div>
+      <p class="text-navy-600 mt-4">Estimate your monthly mortgage payment in seconds.</p>
+    </div>
+
+    <div class="bg-navy-50 rounded-2xl p-6 sm:p-10 border border-navy-100">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+        <div>
+          <label class="block text-sm font-semibold text-navy-800 mb-2">Loan Amount</label>
+          <div class="relative">
+            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-navy-500 font-semibold">$</span>
+            <input type="number" id="calc-amount" class="calc-input pl-8" value="500000" oninput="calcPayment()" min="50000" max="5000000" step="10000">
+          </div>
+          <input type="range" id="calc-amount-range" class="w-full mt-3" min="50000" max="2000000" step="10000" value="500000" oninput="document.getElementById('calc-amount').value=this.value; calcPayment()">
+          <div class="flex justify-between text-xs text-navy-400 mt-1"><span>$50K</span><span>$2M</span></div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-navy-800 mb-2">Interest Rate (%)</label>
+          <div class="relative">
+            <input type="number" id="calc-rate" class="calc-input pr-8" value="5.24" oninput="calcPayment()" min="0.5" max="15" step="0.05">
+            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-navy-500 font-semibold">%</span>
+          </div>
+          <input type="range" id="calc-rate-range" class="w-full mt-3" min="0.5" max="10" step="0.05" value="5.24" oninput="document.getElementById('calc-rate').value=parseFloat(this.value).toFixed(2); calcPayment()">
+          <div class="flex justify-between text-xs text-navy-400 mt-1"><span>0.5%</span><span>10%</span></div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-navy-800 mb-2">Amortization (Years)</label>
+          <select id="calc-term" class="calc-input" onchange="calcPayment()">
+            <option value="10">10 Years</option>
+            <option value="15">15 Years</option>
+            <option value="20">20 Years</option>
+            <option value="25" selected>25 Years</option>
+            <option value="30">30 Years</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="bg-navy-900 rounded-xl px-6 py-8 text-center">
+        <p class="text-navy-300 text-sm mb-1 font-medium">Estimated Monthly Payment</p>
+        <div id="calc-result" class="font-display text-5xl text-white font-bold mb-2">$2,847</div>
+        <p class="text-navy-400 text-xs">Principal + Interest only. Taxes, insurance & CMHC (if applicable) not included.</p>
+        <div class="grid grid-cols-2 gap-4 mt-6 text-sm">
+          <div class="bg-white/5 rounded-lg p-3">
+            <div class="text-navy-400 text-xs mb-1">Total Interest Paid</div>
+            <div id="calc-total-interest" class="text-white font-semibold">$354,100</div>
+          </div>
+          <div class="bg-white/5 rounded-lg p-3">
+            <div class="text-navy-400 text-xs mb-1">Total Cost</div>
+            <div id="calc-total-cost" class="text-white font-semibold">$854,100</div>
+          </div>
+        </div>
+        <a href="#form-section" class="btn-gold mt-6 inline-flex text-sm py-3 px-7">
+          Get My Best Rate →
+        </a>
+      </div>
+
+      <p class="text-center text-xs text-navy-400 mt-4">* This calculator provides an estimate only. Contact us for a personalized rate quote. OAC.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-navy-900 text-white pt-14 pb-6">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-10 pb-10 border-b border-white/10">
+      <!-- Brand -->
+      <div class="sm:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-lg bg-gold-500 flex items-center justify-center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 3L21 10.5V20C21 20.55 20.55 21 20 21H15V15H9V21H4C3.45 21 3 20.55 3 20V10.5Z" fill="#081532"/></svg>
+          </div>
+          <div>
+            <div class="font-display font-bold text-white text-lg">ClearPath Mortgage</div>
+            <div class="text-[10px] text-navy-400 tracking-widest uppercase">Licensed Ontario Mortgage Broker</div>
+          </div>
+        </div>
+        <p class="text-navy-400 text-sm leading-relaxed max-w-xs">Helping Ontario families find better mortgage rates since 2018. Licensed, transparent, and always working for you — not the banks.</p>
+        <div class="flex gap-3 mt-5">
+          <div class="trust-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            SSL Secured
+          </div>
+          <div class="trust-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            FSRA Licensed
+          </div>
+          <div class="trust-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            PIPEDA Compliant
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h4 class="font-semibold text-white text-sm mb-4 tracking-wide">Quick Links</h4>
+        <ul class="space-y-2.5 text-sm text-navy-400">
+          <li><a href="#form-section" class="hover:text-gold-400 transition-colors">Get Pre-Approved</a></li>
+          <li><a href="#calculator" class="hover:text-gold-400 transition-colors">Mortgage Calculator</a></li>
+          <li><a href="#how-it-works" class="hover:text-gold-400 transition-colors">How It Works</a></li>
+          <li><a href="#testimonials" class="hover:text-gold-400 transition-colors">Client Reviews</a></li>
+          <li><a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="font-semibold text-white text-sm mb-4 tracking-wide">Contact Us</h4>
+        <ul class="space-y-3 text-sm text-navy-400">
+          <li class="flex items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15.92z"/></svg>
+            (647) 000-0000
+          </li>
+          <li class="flex items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            hello@clearpathmortgage.ca
+          </li>
+          <li class="flex items-start gap-2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 flex-shrink-0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Mon–Fri: 8am–8pm EST<br/>Sat: 9am–5pm EST
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Legal -->
+    <div class="pt-8 text-center sm:text-left">
+      <p class="text-navy-400 text-xs leading-relaxed max-w-4xl mx-auto sm:mx-0 mb-3">
+        <strong class="text-navy-300">FSRA Licence #[XXXXXXXXX] · Brokerage #[XXXXXXXXX]</strong> · ClearPath Mortgage is licensed by the Financial Services Regulatory Authority of Ontario (FSRA). All mortgage rates are subject to lender approval and may change without notice. OAC. This website is for informational purposes only and does not constitute financial advice. Rates shown are for illustrative purposes.
+      </p>
+      <p class="text-navy-500 text-xs">© 2025 ClearPath Mortgage Inc. All rights reserved. · <a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a> · <a href="#" class="hover:text-gold-400 transition-colors">Terms of Use</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- Multi-step form ----
+  let currentStep = 1;
+  const totalSteps = 4;
+
+  function showStep(n) {
+    document.querySelectorAll('.form-step').forEach(s => s.classList.add('hidden'));
+    const el = document.getElementById('step' + n);
+    if (el) { el.classList.remove('hidden'); }
+    updateProgress(n);
+    currentStep = n;
+  }
+
+  function updateProgress(n) {
+    for (let i = 1; i <= totalSteps; i++) {
+      const ps = document.getElementById('ps' + i);
+      if (i < n) {
+        ps.className = 'progress-step done';
+        ps.innerHTML = '✓';
+      } else if (i === n) {
+        ps.className = 'progress-step active';
+        ps.innerHTML = i;
+      } else {
+        ps.className = 'progress-step pending';
+        ps.innerHTML = i;
+      }
+    }
+    for (let i = 1; i < totalSteps; i++) {
+      const pc = document.getElementById('pc' + i);
+      pc.style.background = i < n ? 'linear-gradient(90deg,#e0a800,#efc34c)' : '#e2e8f0';
+    }
+  }
+
+  function nextStep(from) {
+    if (from < totalSteps) showStep(from + 1);
+  }
+
+  function prevStep(from) {
+    if (from > 1) showStep(from - 1);
+  }
+
+  function markOption(radio) {
+    const group = document.querySelectorAll(`input[name="${radio.name}"]`);
+    group.forEach(r => {
+      r.closest('label').classList.remove('border-gold-500', 'bg-gold-50');
+    });
+    radio.closest('label').classList.add('border-gold-500', 'bg-gold-50');
+  }
+
+  function submitForm() {
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const consent = document.getElementById('consent').checked;
+    if (!name || !email || !phone) { alert('Please fill in all contact fields.'); return; }
+    if (!consent) { alert('Please confirm consent to proceed.'); return; }
+    document.querySelector('#progress-bar-wrap').classList.add('hidden');
+    document.querySelectorAll('.form-step').forEach(s => s.classList.add('hidden'));
+    document.getElementById('step-success').classList.remove('hidden');
+  }
+
+  // ---- Audience cards ----
+  function selectAudience(el, type) {
+    document.querySelectorAll('.audience-card').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    // Pre-select appropriate goal
+    const map = { 'first-time': 'purchase', 'refinancing': 'renew', 'investment': 'invest' };
+    const radio = document.querySelector(`input[name="goal"][value="${map[type]}"]`);
+    if (radio) { radio.checked = true; markOption(radio); }
+    setTimeout(() => { document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' }); }, 300);
+  }
+
+  // ---- Calculator ----
+  function calcPayment() {
+    const P = parseFloat(document.getElementById('calc-amount').value) || 0;
+    const annualRate = parseFloat(document.getElementById('calc-rate').value) || 0;
+    const years = parseInt(document.getElementById('calc-term').value) || 25;
+
+    // Canada uses semi-annual compounding
+    const r = Math.pow(1 + annualRate / 200, 1/6) - 1;
+    const n = years * 12;
+
+    let monthly, totalPaid, totalInterest;
+    if (annualRate === 0) {
+      monthly = P / n;
+      totalPaid = P;
+      totalInterest = 0;
+    } else {
+      monthly = P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+      totalPaid = monthly * n;
+      totalInterest = totalPaid - P;
+    }
+
+    const fmt = v => '$' + Math.round(v).toLocaleString('en-CA');
+    document.getElementById('calc-result').textContent = fmt(monthly) + '/mo';
+    document.getElementById('calc-total-interest').textContent = fmt(totalInterest);
+    document.getElementById('calc-total-cost').textContent = fmt(totalPaid);
+
+    // Keep range sliders in sync
+    const aRange = document.getElementById('calc-amount-range');
+    const aVal = parseFloat(document.getElementById('calc-amount').value);
+    if (aVal >= 50000 && aVal <= 2000000) aRange.value = aVal;
+
+    const rRange = document.getElementById('calc-rate-range');
+    const rVal = parseFloat(document.getElementById('calc-rate').value);
+    if (rVal >= 0.5 && rVal <= 10) rRange.value = rVal;
+  }
+
+  // Run on load
+  calcPayment();
+
+  // Navbar scroll shadow
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 20) {
+      nav.classList.add('shadow-md');
+    } else {
+      nav.classList.remove('shadow-md');
+    }
+  });
+</script>
+</body>
+</html>
