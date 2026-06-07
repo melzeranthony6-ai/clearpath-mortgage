@@ -26,7 +26,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="bg-white text-navy-900 min-h-screen">
       <Navbar />
       <Hero />
       <AudienceSelector onSelect={handleAudienceSelect} />
@@ -35,7 +35,7 @@ function App() {
       <HowItWorks />
       <Calculator />
       <Footer />
-    </>
+    </div>
   )
 }
 

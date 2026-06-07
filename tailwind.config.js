@@ -17,12 +17,18 @@ export default {
           900: '#081532',
         },
         gold: {
+          50: '#fffbea',
+          100: '#fef3c7',
+          200: '#fde68a',
           300: '#f5d98a',
           400: '#efc34c',
           500: '#e0a800',
           600: '#b88700',
           700: '#8f6800',
         },
+      },
+      spacing: {
+        18: '4.5rem',
       },
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],
