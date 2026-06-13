@@ -4,6 +4,15 @@ function formatCurrency(v: number) {
   return '$' + Math.round(v).toLocaleString('en-CA')
 }
 
+function formatAmountInput(v: number) {
+  return Math.round(v).toLocaleString('en-CA')
+}
+
+function parseAmountInput(raw: string) {
+  const digits = raw.replace(/\D/g, '')
+  return digits ? parseInt(digits, 10) : 0
+}
+
 function calcPayment(amount: number, annualRate: number, years: number) {
   const r = Math.pow(1 + annualRate / 200, 1 / 6) - 1
   const n = years * 12
@@ -60,16 +69,17 @@ function Calculator() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
             <div>
               <label className="block text-sm font-semibold text-navy-800 mb-2">Loan Amount</label>
-              <div className="relative">
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-navy-500 font-semibold">$</span>
+              <div className="flex rounded-lg border-[1.5px] border-[#d1d5db] bg-white overflow-hidden focus-within:border-[#2d559a] focus-within:shadow-[0_0_0_3px_rgba(45,85,154,0.12)]">
+                <span className="flex items-center px-3.5 text-navy-500 font-semibold bg-navy-50 border-r border-[#d1d5db] shrink-0">
+                  $
+                </span>
                 <input
-                  type="number"
-                  className="calc-input pl-8"
-                  value={amount}
-                  onChange={(e) => handleAmountChange(parseFloat(e.target.value) || 0)}
-                  min={50000}
-                  max={5000000}
-                  step={10000}
+                  type="text"
+                  inputMode="numeric"
+                  className="flex-1 px-3.5 py-2.5 text-[15px] outline-none bg-white min-w-0"
+                  value={formatAmountInput(amount)}
+                  onChange={(e) => handleAmountChange(parseAmountInput(e.target.value))}
+                  aria-label="Loan amount"
                 />
               </div>
               <input
