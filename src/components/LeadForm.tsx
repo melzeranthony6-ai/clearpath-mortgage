@@ -55,7 +55,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
     ].filter(Boolean)
 
     try {
-      const response = await fetch('https://bermudai.app.n8n.cloud/webhook-test/clearpath-lead', {
+      const response = await fetch('https://bermudai.app.n8n.cloud/webhook/clearpath-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
