@@ -71,11 +71,7 @@ function Footer() {
                   Client Reviews
                 </a>
               </li>
-              <li>
-                <a href="#" className="hover:text-gold-400 transition-colors">
-                  Privacy Policy
-                </a>
-              </li>
+              <li>Privacy Policy</li>
             </ul>
           </div>
 
@@ -93,7 +89,7 @@ function Footer() {
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
-                info@clearpathmortgage.ca
+                <a href="mailto:info@clearpathmortgage.ca">info@clearpathmortgage.ca</a>
               </li>
               <li className="flex items-start gap-2">
                 <svg
@@ -124,14 +120,7 @@ function Footer() {
             does not constitute financial advice. Rates shown are for illustrative purposes.
           </p>
           <p className="text-navy-500 text-xs">
-            © 2026 ClearPath Mortgage Inc. All rights reserved. ·{' '}
-            <a href="#" className="hover:text-gold-400 transition-colors">
-              Privacy Policy
-            </a>{' '}
-            ·{' '}
-            <a href="#" className="hover:text-gold-400 transition-colors">
-              Terms of Use
-            </a>
+            © 2026 ClearPath Mortgage Inc. All rights reserved. · Privacy Policy · Terms of Use
           </p>
         </div>
       </div>

@@ -12,6 +12,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
   const [showProgress, setShowProgress] = useState(true)
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({})
   const [contact, setContact] = useState({ name: '', email: '', phone: '', consent: false })
+  const [stepError, setStepError] = useState('')
 
   useEffect(() => {
     if (preselectedGoal) {
@@ -31,9 +32,27 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
 
   const handleOptionChange = (group: string, value: string) => {
     setSelectedOptions((prev) => ({ ...prev, [group]: value }))
+    setStepError('')
   }
 
   const isOptionSelected = (group: string, value: string) => selectedOptions[group] === value
+
+  const tryContinue = (fromStep: number) => {
+    if (fromStep === 1 && !selectedOptions.goal) {
+      setStepError('Please select a mortgage goal to continue.')
+      return
+    }
+    if (fromStep === 2 && !selectedOptions.propval) {
+      setStepError('Please select a property value to continue.')
+      return
+    }
+    if (fromStep === 3 && !selectedOptions.employment) {
+      setStepError('Please select an employment type to continue.')
+      return
+    }
+    setStepError('')
+    setCurrentStep(fromStep + 1)
+  }
 
   const submitForm = async () => {
     if (!contact.name.trim() || !contact.email.trim() || !contact.phone.trim()) {
@@ -182,7 +201,8 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                     </label>
                   ))}
                 </div>
-                <button className="btn-gold w-full mt-6 justify-center" onClick={() => setCurrentStep(2)}>
+                {stepError && <p className="text-sm text-red-600 mt-4">{stepError}</p>}
+                <button className="btn-gold w-full mt-6 justify-center" onClick={() => tryContinue(1)}>
                   Continue →
                 </button>
               </div>
@@ -223,11 +243,18 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                     </label>
                   ))}
                 </div>
+                {stepError && <p className="text-sm text-red-600 mt-4">{stepError}</p>}
                 <div className="flex gap-3 mt-6">
-                  <button className="btn-navy flex-1" onClick={() => setCurrentStep(1)}>
+                  <button
+                    className="btn-navy flex-1"
+                    onClick={() => {
+                      setStepError('')
+                      setCurrentStep(1)
+                    }}
+                  >
                     ← Back
                   </button>
-                  <button className="btn-gold flex-1 justify-center" onClick={() => setCurrentStep(3)}>
+                  <button className="btn-gold flex-1 justify-center" onClick={() => tryContinue(2)}>
                     Continue →
                   </button>
                 </div>
@@ -273,11 +300,18 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                     </label>
                   ))}
                 </div>
+                {stepError && <p className="text-sm text-red-600 mt-4">{stepError}</p>}
                 <div className="flex gap-3 mt-6">
-                  <button className="btn-navy flex-1" onClick={() => setCurrentStep(2)}>
+                  <button
+                    className="btn-navy flex-1"
+                    onClick={() => {
+                      setStepError('')
+                      setCurrentStep(2)
+                    }}
+                  >
                     ← Back
                   </button>
-                  <button className="btn-gold flex-1 justify-center" onClick={() => setCurrentStep(4)}>
+                  <button className="btn-gold flex-1 justify-center" onClick={() => tryContinue(3)}>
                     Continue →
                   </button>
                 </div>

@@ -20,7 +20,14 @@ function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-navy-100 shadow-sm${scrolled ? ' shadow-md' : ''}`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-18">
-        <a href="#" className="flex items-center gap-3 group">
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault()
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}
+          className="flex items-center gap-3 group"
+        >
           <div className="w-9 h-9 rounded-lg bg-navy-800 flex items-center justify-center shadow">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
