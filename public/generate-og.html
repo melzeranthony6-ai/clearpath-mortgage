@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generate OG Image</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem;
+      font-family: Arial, sans-serif;
+      background: #1a1a2e;
+      color: #fff;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+    canvas {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #333;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0a1628;
+      background: #b8960c;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #d4ad1a;
+    }
+  </style>
+</head>
+<body>
+  <h1>OG Image Preview (1200 × 630)</h1>
+  <canvas id="og-canvas" width="1200" height="630"></canvas>
+  <button id="download-btn" type="button">Download og-image.png</button>
+
+  <script>
+    const WIDTH = 1200;
+    const HEIGHT = 630;
+    const NAVY = "#0a1628";
+    const GOLD = "#b8960c";
+    const WHITE = "#ffffff";
+
+    const canvas = document.getElementById("og-canvas");
+    const ctx = canvas.getContext("2d");
+
+    function drawOgImage() {
+      ctx.fillStyle = NAVY;
+      ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+      ctx.fillStyle = GOLD;
+      ctx.fillRect(0, 0, 6, HEIGHT);
+
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      ctx.fillStyle = GOLD;
+      ctx.font = "700 72px Georgia, serif";
+      ctx.fillText("ClearPath Mortgage", WIDTH / 2, 280);
+
+      ctx.fillStyle = WHITE;
+      ctx.font = "400 32px Arial, sans-serif";
+      ctx.fillText("Licensed Ontario Mortgage Brokers", WIDTH / 2, 360);
+    }
+
+    drawOgImage();
+
+    document.getElementById("download-btn").addEventListener("click", () => {
+      canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "og-image.png";
+        link.click();
+        URL.revokeObjectURL(url);
+      }, "image/png");
+    });
+  </script>
+</body>
+</html>
