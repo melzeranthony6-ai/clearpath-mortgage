@@ -35,7 +35,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
 
   const isOptionSelected = (group: string, value: string) => selectedOptions[group] === value
 
-  const submitForm = () => {
+  const submitForm = async () => {
     if (!contact.name.trim() || !contact.email.trim() || !contact.phone.trim()) {
       alert('Please fill in all contact fields.')
       return
@@ -44,8 +44,35 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
       alert('Please confirm consent to proceed.')
       return
     }
-    setShowProgress(false)
-    setShowSuccess(true)
+
+    const nameParts = contact.name.trim().split(/\s+/)
+    const firstName = nameParts[0] ?? ''
+    const lastName = nameParts.slice(1).join(' ')
+
+    const messageParts = [
+      selectedOptions.propval && `Property value: ${selectedOptions.propval}`,
+      selectedOptions.employment && `Employment: ${selectedOptions.employment}`,
+    ].filter(Boolean)
+
+    try {
+      const response = await fetch('https://bermudai.app.n8n.cloud/webhook-test/clearpath-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email: contact.email.trim(),
+          phone: contact.phone.trim(),
+          service: selectedOptions.goal ?? '',
+          message: messageParts.join('; '),
+        }),
+      })
+      if (!response.ok) throw new Error('Submission failed')
+      setShowProgress(false)
+      setShowSuccess(true)
+    } catch {
+      alert('Something went wrong. Please try again.')
+    }
   }
 
   if (showSuccess) {
@@ -71,21 +98,8 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                 </div>
                 <h3 className="font-display text-2xl text-navy-900 font-bold mb-3">You're all set!</h3>
                 <p className="text-navy-700 text-base leading-relaxed mb-2">
-                  <strong>Thank you — we will be in touch within 5 minutes.</strong>
+                  Thank you, we have received your request and will be in touch within 24 hours.
                 </p>
-                <p className="text-navy-500 text-sm">
-                  Check your email for a confirmation. A licensed mortgage advisor will call you shortly to discuss
-                  your options.
-                </p>
-                <div className="mt-6 p-4 bg-navy-50 rounded-xl text-sm text-navy-600 text-left">
-                  <p className="font-semibold text-navy-800 mb-1">📋 What happens next?</p>
-                  <ul className="space-y-1 text-navy-600">
-                    <li>✓ Advisor reviews your profile</li>
-                    <li>✓ We match you with top lender rates</li>
-                    <li>✓ You receive a written rate summary</li>
-                    <li>✓ No hard credit check at this stage</li>
-                  </ul>
-                </div>
               </div>
             </div>
           </div>
