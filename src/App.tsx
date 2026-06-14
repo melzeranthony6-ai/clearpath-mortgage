@@ -4,9 +4,13 @@ import Hero from './components/Hero'
 import AudienceSelector from './components/AudienceSelector'
 import LeadForm from './components/LeadForm'
 import TrustSection from './components/TrustSection'
+import MeetYourAdvisor from './components/MeetYourAdvisor'
 import HowItWorks from './components/HowItWorks'
 import Calculator from './components/Calculator'
+import MortgageTypes from './components/MortgageTypes'
+import FAQ from './components/FAQ'
 import Footer from './components/Footer'
+import StickyMobileCTA from './components/StickyMobileCTA'
 import type { AudienceType } from './types'
 
 const audienceGoalMap: Record<AudienceType, string> = {
@@ -26,15 +30,19 @@ function App() {
   }
 
   return (
-    <div className="bg-white text-navy-900 min-h-screen">
+    <div className="bg-white text-navy-900 min-h-screen pb-24 md:pb-0">
       <Navbar />
       <Hero />
       <AudienceSelector onSelect={handleAudienceSelect} />
-      <LeadForm preselectedGoal={preselectedGoal} />
-      <TrustSection />
       <HowItWorks />
       <Calculator />
+      <MortgageTypes />
+      <MeetYourAdvisor />
+      <TrustSection />
+      <FAQ />
+      <LeadForm preselectedGoal={preselectedGoal} />
       <Footer />
+      <StickyMobileCTA />
     </div>
   )
 }

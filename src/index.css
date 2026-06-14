@@ -19,7 +19,7 @@ html {
 .hero-bg {
   background:
     linear-gradient(rgba(8, 21, 50, 0.75), rgba(8, 21, 50, 0.75)),
-    url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80') center / cover no-repeat;
+    url('/images/hero.jpg') center / cover no-repeat;
   position: relative;
   overflow: hidden;
 }
@@ -49,13 +49,15 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 18px 28px;
+  padding: 16px 24px;
   min-width: 110px;
-  font-weight: 700;
-  font-size: 13px;
-  color: #64748b;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  min-height: 52px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.lender-logo-box:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 8px rgba(19, 46, 98, 0.06);
 }
 
 .step-connector {
@@ -99,11 +101,9 @@ html {
 .audience-card {
   border: 2px solid #e2e8f0;
   border-radius: 16px;
-  padding: 28px 24px;
   cursor: pointer;
   transition: all 0.25s ease;
   background: white;
-  text-align: center;
 }
 
 .audience-card:hover,
@@ -191,6 +191,13 @@ html {
   padding: 28px 24px;
   box-shadow: 0 4px 24px rgba(19, 46, 98, 0.08);
   border: 1px solid #e2e8f0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(19, 46, 98, 0.12);
+  border-color: #cbd5e1;
 }
 
 .process-card {
@@ -271,6 +278,47 @@ html {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .form-step-enter {
+    animation: none;
+  }
+}
+
+@keyframes formStepEnter {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.form-step-enter {
+  animation: formStepEnter 0.3s ease forwards;
+}
+
+.btn-gold:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(8, 21, 50, 0.2);
+  border-top-color: #081532;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 

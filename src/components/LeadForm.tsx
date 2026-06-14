@@ -6,6 +6,83 @@ interface LeadFormProps {
 
 const totalSteps = 4
 
+const GoalIcon = ({ type }: { type: string }) => {
+  const props = { width: 22, height: 22, viewBox: '0 0 24 24', fill: 'none', stroke: '#1a3f7f', strokeWidth: 1.8 }
+
+  switch (type) {
+    case 'purchase':
+      return (
+        <svg {...props}>
+          <path d="M3 10.5L12 3L21 10.5V20C21 20.55 20.55 21 20 21H15V15H9V21H4C3.45 21 3 20.55 3 20V10.5Z" />
+        </svg>
+      )
+    case 'renew':
+      return (
+        <svg {...props}>
+          <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
+        </svg>
+      )
+    case 'invest':
+      return (
+        <svg {...props}>
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+          <polyline points="16 7 22 7 22 13" />
+        </svg>
+      )
+    case 'heloc':
+      return (
+        <svg {...props}>
+          <rect x="2" y="5" width="20" height="14" rx="2" />
+          <line x1="2" y1="10" x2="22" y2="10" />
+        </svg>
+      )
+    default:
+      return null
+  }
+}
+
+const EmploymentIcon = ({ type }: { type: string }) => {
+  const props = { width: 20, height: 20, viewBox: '0 0 24 24', fill: 'none', stroke: '#1a3f7f', strokeWidth: 1.8 }
+
+  switch (type) {
+    case 'employed':
+      return (
+        <svg {...props}>
+          <rect x="2" y="7" width="20" height="14" rx="2" />
+          <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+        </svg>
+      )
+    case 'self':
+      return (
+        <svg {...props}>
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="8" y1="13" x2="16" y2="13" />
+          <line x1="8" y1="17" x2="16" y2="17" />
+        </svg>
+      )
+    case 'retired':
+      return (
+        <svg {...props}>
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        </svg>
+      )
+    case 'other':
+      return (
+        <svg {...props}>
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+          <rect x="8" y="2" width="8" height="4" rx="1" />
+        </svg>
+      )
+    default:
+      return null
+  }
+}
+
 function LeadForm({ preselectedGoal }: LeadFormProps) {
   const [currentStep, setCurrentStep] = useState(1)
   const [showSuccess, setShowSuccess] = useState(false)
@@ -13,6 +90,8 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({})
   const [contact, setContact] = useState({ name: '', email: '', phone: '', consent: false })
   const [stepError, setStepError] = useState('')
+  const [contactError, setContactError] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     if (preselectedGoal) {
@@ -37,6 +116,11 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
 
   const isOptionSelected = (group: string, value: string) => selectedOptions[group] === value
 
+  const goToStep = (step: number) => {
+    setStepError('')
+    setCurrentStep(step)
+  }
+
   const tryContinue = (fromStep: number) => {
     if (fromStep === 1 && !selectedOptions.goal) {
       setStepError('Please select a mortgage goal to continue.')
@@ -56,13 +140,16 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
 
   const submitForm = async () => {
     if (!contact.name.trim() || !contact.email.trim() || !contact.phone.trim()) {
-      alert('Please fill in all contact fields.')
+      setContactError('Please fill in all contact fields.')
       return
     }
     if (!contact.consent) {
-      alert('Please confirm consent to proceed.')
+      setContactError('Please confirm consent to proceed.')
       return
     }
+
+    setContactError('')
+    setIsSubmitting(true)
 
     const nameParts = contact.name.trim().split(/\s+/)
     const firstName = nameParts[0] ?? ''
@@ -90,9 +177,14 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
       setShowProgress(false)
       setShowSuccess(true)
     } catch {
-      alert('Something went wrong. Please try again.')
+      setContactError('Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
+
+  const contactIntro =
+    'No credit impact. No obligation. A mortgage advisor will contact you within 5 minutes during business hours.'
 
   if (showSuccess) {
     return (
@@ -102,14 +194,12 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
             <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Free Pre-Approval</p>
             <h2 className="font-display text-3xl sm:text-4xl text-navy-900">Apply in Under 2 Minutes</h2>
             <div className="gold-line mx-auto mt-4"></div>
-            <p className="text-navy-600 mt-4 text-sm">
-              No credit impact. No obligation. A mortgage advisor will contact you within 5 minutes.
-            </p>
+            <p className="text-navy-600 mt-4 text-sm">{contactIntro}</p>
           </div>
 
           <div className="bg-white rounded-2xl shadow-xl border border-navy-100 overflow-hidden">
             <div className="px-8 pb-8">
-              <div className="text-center py-8">
+              <div className="text-center py-8 form-step-enter">
                 <div className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-6">
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2">
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -117,7 +207,8 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                 </div>
                 <h3 className="font-display text-2xl text-navy-900 font-bold mb-3">You're all set!</h3>
                 <p className="text-navy-700 text-base leading-relaxed mb-2">
-                  Thank you, we have received your request and will be in touch within 24 hours.
+                  Thank you — we received your request. A licensed advisor will contact you within 5 minutes during
+                  business hours.
                 </p>
               </div>
             </div>
@@ -134,9 +225,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
           <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Free Pre-Approval</p>
           <h2 className="font-display text-3xl sm:text-4xl text-navy-900">Apply in Under 2 Minutes</h2>
           <div className="gold-line mx-auto mt-4"></div>
-          <p className="text-navy-600 mt-4 text-sm">
-            No credit impact. No obligation. A mortgage advisor will contact you within 5 minutes.
-          </p>
+          <p className="text-navy-600 mt-4 text-sm">{contactIntro}</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl border border-navy-100 overflow-hidden">
@@ -165,22 +254,24 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
 
           <div className="px-8 pb-8">
             {currentStep === 1 && (
-              <div>
+              <div key="step-1" className="form-step-enter">
                 <h3 className="font-display text-xl text-navy-900 font-bold mb-1">What's your mortgage goal?</h3>
                 <p className="text-navy-500 text-sm mb-6">We'll match you with the right lenders and products.</p>
                 <div className="grid grid-cols-1 gap-3">
                   {[
-                    { value: 'purchase', emoji: '🏠', title: 'Buy a Home', desc: 'Purchase a new property in Ontario' },
-                    { value: 'renew', emoji: '🔄', title: 'Renew or Refinance', desc: 'Get a better rate on your existing mortgage' },
-                    { value: 'invest', emoji: '📈', title: 'Investment Property', desc: 'Finance a rental or investment property' },
-                    { value: 'heloc', emoji: '💳', title: 'Access Home Equity (HELOC)', desc: 'Use your equity for renovations or debt consolidation' },
+                    { value: 'purchase', title: 'Buy a Home', desc: 'Purchase a new property in Ontario' },
+                    { value: 'renew', title: 'Renew or Refinance', desc: 'Get a better rate on your existing mortgage' },
+                    { value: 'invest', title: 'Investment Property', desc: 'Finance a rental or investment property' },
+                    {
+                      value: 'heloc',
+                      title: 'Access Home Equity (HELOC)',
+                      desc: 'Use your equity for renovations or debt consolidation',
+                    },
                   ].map((opt) => (
                     <label
                       key={opt.value}
                       className={`option-btn flex items-center gap-4 p-4 border-2 rounded-xl cursor-pointer hover:border-navy-400 transition-colors ${
-                        isOptionSelected('goal', opt.value)
-                          ? 'border-gold-500 bg-gold-50'
-                          : 'border-navy-100'
+                        isOptionSelected('goal', opt.value) ? 'border-gold-500 bg-gold-50' : 'border-navy-100'
                       }`}
                     >
                       <input
@@ -192,7 +283,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                         onChange={() => handleOptionChange('goal', opt.value)}
                       />
                       <div className="w-10 h-10 rounded-lg bg-navy-50 flex items-center justify-center flex-shrink-0">
-                        {opt.emoji}
+                        <GoalIcon type={opt.value} />
                       </div>
                       <div>
                         <div className="font-semibold text-navy-900 text-sm">{opt.title}</div>
@@ -209,7 +300,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
             )}
 
             {currentStep === 2 && (
-              <div>
+              <div key="step-2" className="form-step-enter">
                 <h3 className="font-display text-xl text-navy-900 font-bold mb-1">
                   What's your estimated property value?
                 </h3>
@@ -226,9 +317,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                     <label
                       key={opt.value}
                       className={`option-btn flex items-center gap-4 p-4 border-2 rounded-xl cursor-pointer hover:border-navy-400 transition-colors ${
-                        isOptionSelected('propval', opt.value)
-                          ? 'border-gold-500 bg-gold-50'
-                          : 'border-navy-100'
+                        isOptionSelected('propval', opt.value) ? 'border-gold-500 bg-gold-50' : 'border-navy-100'
                       }`}
                     >
                       <input
@@ -245,13 +334,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                 </div>
                 {stepError && <p className="text-sm text-red-600 mt-4">{stepError}</p>}
                 <div className="flex gap-3 mt-6">
-                  <button
-                    className="btn-navy flex-1"
-                    onClick={() => {
-                      setStepError('')
-                      setCurrentStep(1)
-                    }}
-                  >
+                  <button className="btn-navy flex-1" onClick={() => goToStep(1)}>
                     ← Back
                   </button>
                   <button className="btn-gold flex-1 justify-center" onClick={() => tryContinue(2)}>
@@ -262,24 +345,22 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
             )}
 
             {currentStep === 3 && (
-              <div>
+              <div key="step-3" className="form-step-enter">
                 <h3 className="font-display text-xl text-navy-900 font-bold mb-1">What's your employment type?</h3>
                 <p className="text-navy-500 text-sm mb-6">
                   We work with all income types — including self-employed Canadians.
                 </p>
                 <div className="grid grid-cols-1 gap-3">
                   {[
-                    { value: 'employed', emoji: '💼', title: 'Salaried / Employed', desc: 'T4 employee with regular paycheque' },
-                    { value: 'self', emoji: '🧾', title: 'Self-Employed', desc: 'Business owner, contractor, or freelancer' },
-                    { value: 'retired', emoji: '🏖️', title: 'Retired / Pension Income', desc: 'CPP, OAS, company pension' },
-                    { value: 'other', emoji: '📋', title: 'Other Income Type', desc: 'Rental income, dividends, or blended' },
+                    { value: 'employed', title: 'Salaried / Employed', desc: 'T4 employee with regular paycheque' },
+                    { value: 'self', title: 'Self-Employed', desc: 'Business owner, contractor, or freelancer' },
+                    { value: 'retired', title: 'Retired / Pension Income', desc: 'CPP, OAS, company pension' },
+                    { value: 'other', title: 'Other Income Type', desc: 'Rental income, dividends, or blended' },
                   ].map((opt) => (
                     <label
                       key={opt.value}
                       className={`option-btn flex items-center gap-4 p-4 border-2 rounded-xl cursor-pointer hover:border-navy-400 transition-colors ${
-                        isOptionSelected('employment', opt.value)
-                          ? 'border-gold-500 bg-gold-50'
-                          : 'border-navy-100'
+                        isOptionSelected('employment', opt.value) ? 'border-gold-500 bg-gold-50' : 'border-navy-100'
                       }`}
                     >
                       <input
@@ -290,8 +371,8 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                         checked={isOptionSelected('employment', opt.value)}
                         onChange={() => handleOptionChange('employment', opt.value)}
                       />
-                      <div className="w-9 h-9 rounded-lg bg-navy-50 flex items-center justify-center flex-shrink-0 text-lg">
-                        {opt.emoji}
+                      <div className="w-9 h-9 rounded-lg bg-navy-50 flex items-center justify-center flex-shrink-0">
+                        <EmploymentIcon type={opt.value} />
                       </div>
                       <div>
                         <div className="font-semibold text-navy-900 text-sm">{opt.title}</div>
@@ -302,13 +383,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                 </div>
                 {stepError && <p className="text-sm text-red-600 mt-4">{stepError}</p>}
                 <div className="flex gap-3 mt-6">
-                  <button
-                    className="btn-navy flex-1"
-                    onClick={() => {
-                      setStepError('')
-                      setCurrentStep(2)
-                    }}
-                  >
+                  <button className="btn-navy flex-1" onClick={() => goToStep(2)}>
                     ← Back
                   </button>
                   <button className="btn-gold flex-1 justify-center" onClick={() => tryContinue(3)}>
@@ -319,7 +394,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
             )}
 
             {currentStep === 4 && (
-              <div>
+              <div key="step-4" className="form-step-enter">
                 <h3 className="font-display text-xl text-navy-900 font-bold mb-1">How should we reach you?</h3>
                 <p className="text-navy-500 text-sm mb-6">
                   A licensed advisor will contact you within 5 minutes during business hours.
@@ -332,7 +407,10 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                       className="form-input"
                       placeholder="Jane Smith"
                       value={contact.name}
-                      onChange={(e) => setContact({ ...contact, name: e.target.value })}
+                      onChange={(e) => {
+                        setContact({ ...contact, name: e.target.value })
+                        setContactError('')
+                      }}
                     />
                   </div>
                   <div>
@@ -342,7 +420,10 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                       className="form-input"
                       placeholder="jane@email.com"
                       value={contact.email}
-                      onChange={(e) => setContact({ ...contact, email: e.target.value })}
+                      onChange={(e) => {
+                        setContact({ ...contact, email: e.target.value })
+                        setContactError('')
+                      }}
                     />
                   </div>
                   <div>
@@ -350,9 +431,12 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                     <input
                       type="tel"
                       className="form-input"
-                      placeholder="(416) 555-0100"
+                      placeholder="(416) 847-2931"
                       value={contact.phone}
-                      onChange={(e) => setContact({ ...contact, phone: e.target.value })}
+                      onChange={(e) => {
+                        setContact({ ...contact, phone: e.target.value })
+                        setContactError('')
+                      }}
                     />
                   </div>
                   <div className="flex items-start gap-2 mt-1">
@@ -361,7 +445,10 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                       id="consent"
                       className="mt-0.5 w-4 h-4 accent-navy-700 cursor-pointer"
                       checked={contact.consent}
-                      onChange={(e) => setContact({ ...contact, consent: e.target.checked })}
+                      onChange={(e) => {
+                        setContact({ ...contact, consent: e.target.checked })
+                        setContactError('')
+                      }}
                     />
                     <label htmlFor="consent" className="text-xs text-navy-500 leading-relaxed cursor-pointer">
                       I consent to being contacted by a ClearPath Mortgage advisor. Your information is protected under
@@ -369,15 +456,29 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                     </label>
                   </div>
                 </div>
+                {contactError && <p className="text-sm text-red-600 mt-4">{contactError}</p>}
                 <div className="flex gap-3 mt-6">
-                  <button className="btn-navy flex-1" onClick={() => setCurrentStep(3)}>
+                  <button className="btn-navy flex-1" onClick={() => goToStep(3)} disabled={isSubmitting}>
                     ← Back
                   </button>
-                  <button className="btn-gold flex-1 justify-center" onClick={submitForm}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Submit Application
+                  <button
+                    className="btn-gold flex-1 justify-center"
+                    onClick={submitForm}
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <span className="spinner" />
+                        Sending…
+                      </>
+                    ) : (
+                      <>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Submit Application
+                      </>
+                    )}
                   </button>
                 </div>
               </div>

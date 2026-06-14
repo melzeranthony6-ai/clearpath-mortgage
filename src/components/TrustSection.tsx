@@ -4,30 +4,36 @@ const StarIcon = ({ size = 16 }: { size?: number }) => (
   </svg>
 )
 
-const lenders = ['RBC', 'TD Bank', 'Scotiabank', 'BMO', 'CIBC', 'First National', 'MCAP', 'Merix']
+const lenders = [
+  { name: 'RBC', logo: '/lenders/rbc.svg' },
+  { name: 'TD Bank', logo: '/lenders/td.svg' },
+  { name: 'Scotiabank', logo: '/lenders/scotiabank.svg' },
+  { name: 'BMO', logo: '/lenders/bmo.svg' },
+  { name: 'CIBC', logo: '/lenders/cibc.svg' },
+  { name: 'First National', logo: '/lenders/first-national.svg' },
+  { name: 'MCAP', logo: '/lenders/mcap.svg' },
+  { name: 'Merix', logo: '/lenders/merix.svg' },
+]
 
 const testimonials = [
   {
     quote:
       '"As a first-time buyer in Mississauga, I was completely overwhelmed. ClearPath walked me through everything — the FHSA, the land transfer rebate — and got me a rate 0.4% lower than my bank offered. I closed in 28 days."',
-    initials: 'MK',
-    avatarClass: 'bg-navy-100 text-navy-700',
+    photo: '/images/testimonial-1.jpg',
     name: 'Michael K.',
     location: 'Mississauga, ON · First Time Buyer',
   },
   {
     quote:
       '"I\'m self-employed and my bank kept declining me. ClearPath found a lender that understood my income structure and approved me within a week. The whole process was smooth and they explained every step. Highly recommend."',
-    initials: 'SL',
-    avatarClass: 'bg-gold-100 text-gold-700',
+    photo: '/images/testimonial-2.jpg',
     name: 'Sandra L.',
     location: 'Hamilton, ON · Self-Employed Refinance',
   },
   {
     quote:
       '"We were renewing our mortgage on a duplex in Ottawa and our bank wouldn\'t budge on rate. ClearPath got us 85 basis points lower through First National. That\'s saving us $340 a month. Unbelievable service."',
-    initials: 'DR',
-    avatarClass: 'bg-navy-100 text-navy-700',
+    photo: '/images/testimonial-3.jpg',
     name: 'David & Rachel T.',
     location: 'Ottawa, ON · Investment Property',
   },
@@ -45,8 +51,12 @@ function TrustSection() {
 
         <div className="flex flex-wrap justify-center gap-4 mb-16">
           {lenders.map((lender) => (
-            <div key={lender} className="lender-logo-box">
-              {lender}
+            <div key={lender.name} className="lender-logo-box">
+              <img
+                src={lender.logo}
+                alt={lender.name}
+                className="h-6 w-auto max-w-[100px] object-contain opacity-70 grayscale"
+              />
             </div>
           ))}
         </div>
@@ -70,11 +80,11 @@ function TrustSection() {
               </div>
               <p className="text-navy-700 text-sm leading-relaxed mb-5">{t.quote}</p>
               <div className="flex items-center gap-3">
-                <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${t.avatarClass}`}
-                >
-                  {t.initials}
-                </div>
+                <img
+                  src={t.photo}
+                  alt={t.name}
+                  className="w-10 h-10 rounded-full object-cover ring-2 ring-navy-100"
+                />
                 <div>
                   <div className="font-semibold text-navy-900 text-sm">{t.name}</div>
                   <div className="text-xs text-navy-500">{t.location}</div>
