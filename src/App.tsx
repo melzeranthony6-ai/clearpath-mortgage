@@ -11,6 +11,7 @@ import MortgageTypes from './components/MortgageTypes'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import StickyMobileCTA from './components/StickyMobileCTA'
+import ChatWidget from './components/ChatWidget'
 import type { AudienceType } from './types'
 
 const audienceGoalMap: Record<AudienceType, string> = {
@@ -43,6 +44,7 @@ function App() {
       <LeadForm preselectedGoal={preselectedGoal} />
       <Footer />
       <StickyMobileCTA />
+      <ChatWidget />
     </div>
   )
 }
