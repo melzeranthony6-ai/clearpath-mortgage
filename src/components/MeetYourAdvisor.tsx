@@ -1,6 +1,6 @@
 function MeetYourAdvisor() {
   const bullets = [
-    '15+ years helping Ontario families buy and refinance',
+    '15+ years helping Canadian families buy and refinance',
     'FSRA licensed — works for you, not the banks',
     'Specializes in first-time buyers and self-employed clients',
   ]

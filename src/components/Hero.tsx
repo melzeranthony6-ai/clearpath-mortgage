@@ -6,7 +6,7 @@ function Hero() {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
           </svg>
-          FSRA Licensed · Ontario Mortgage Broker
+          FSRA Licensed · Canadian Mortgage Broker
         </div>
 
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-tight mb-5 fade-up fade-up-delay-1">
@@ -16,7 +16,7 @@ function Hero() {
         </h1>
 
         <p className="text-navy-200 text-lg sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed fade-up fade-up-delay-2">
-          We shop over 50 lenders so you don't have to. Whether you're buying your first home in Ontario or
+          We shop over 50 lenders so you don't have to. Whether you're buying your first home in Canada or
           renewing your mortgage, ClearPath gets you approved — and in your home — with confidence.
         </p>
 

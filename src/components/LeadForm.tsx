@@ -259,7 +259,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                 <p className="text-navy-500 text-sm mb-6">We'll match you with the right lenders and products.</p>
                 <div className="grid grid-cols-1 gap-3">
                   {[
-                    { value: 'purchase', title: 'Buy a Home', desc: 'Purchase a new property in Ontario' },
+                    { value: 'purchase', title: 'Buy a Home', desc: 'Purchase a new property in Canada' },
                     { value: 'renew', title: 'Renew or Refinance', desc: 'Get a better rate on your existing mortgage' },
                     { value: 'invest', title: 'Investment Property', desc: 'Finance a rental or investment property' },
                     {

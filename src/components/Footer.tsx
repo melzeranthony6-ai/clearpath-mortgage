@@ -26,12 +26,12 @@ function Footer() {
                 <div>
                   <div className="font-display font-bold text-white text-lg">ClearPath Mortgage</div>
                   <div className="text-[10px] text-navy-400 tracking-widest uppercase">
-                    Licensed Ontario Mortgage Broker
+                    Licensed Canadian Mortgage Broker
                   </div>
                 </div>
               </div>
               <p className="text-navy-400 text-sm leading-relaxed max-w-xs">
-                Helping Ontario families find better mortgage rates since 2018. Licensed, transparent, and always
+                Helping Canadian families find better mortgage rates since 2018. Licensed, transparent, and always
                 working for you — not the banks.
               </p>
               <div className="flex gap-3 mt-5">
@@ -133,7 +133,7 @@ function Footer() {
           <div className="pt-8 text-center sm:text-left">
             <p className="text-navy-400 text-xs leading-relaxed max-w-4xl mx-auto sm:mx-0 mb-3">
               <strong className="text-navy-300">FSRA Licence #12345 · Brokerage #67890</strong> · ClearPath Mortgage is
-              licensed by the Financial Services Regulatory Authority of Ontario (FSRA). All mortgage rates are subject
+              licensed by FSRA. All mortgage rates are subject
               to lender approval and may change without notice. OAC. This website is for informational purposes only
               and does not constitute financial advice. Rates shown are for illustrative purposes.
             </p>
@@ -183,7 +183,7 @@ function Footer() {
       <LegalModal title="Terms of Use" isOpen={termsOpen} onClose={() => setTermsOpen(false)}>
         <p>
           By using the ClearPath Mortgage website, you agree to these terms. This site is provided for informational
-          purposes and to facilitate contact with a licensed Ontario mortgage broker.
+          purposes and to facilitate contact with a licensed Canadian mortgage broker.
         </p>
         <p>
           Rate quotes, calculator results, and other information on this site are estimates only and do not constitute
@@ -192,7 +192,7 @@ function Footer() {
         </p>
         <p>
           ClearPath Mortgage is licensed by FSRA. Mortgage broker services are provided in accordance with applicable
-          Ontario regulations. Nothing on this site constitutes financial, legal, or tax advice.
+          regulations. Nothing on this site constitutes financial, legal, or tax advice.
         </p>
         <p>
           We reserve the right to modify these terms at any time. Continued use of the site constitutes acceptance of

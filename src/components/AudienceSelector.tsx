@@ -17,7 +17,7 @@ const audiences: {
     image: '/images/audience-buyer.jpg',
     title: 'First Time Buyer',
     description:
-      "Step-by-step guidance from pre-approval to keys in hand. We'll walk you through every Ontario-specific incentive available.",
+      "Step-by-step guidance from pre-approval to keys in hand. We'll walk you through every Canada-specific incentive available.",
     tags: 'FHSA · RRSP Plan · Land Transfer Rebate →',
   },
   {
@@ -33,7 +33,7 @@ const audiences: {
     image: '/images/audience-investment.jpg',
     title: 'Property Investment',
     description:
-      'Grow your Ontario portfolio with competitive rental property financing. Access lenders that specialize in investor clients.',
+      'Grow your Canadian portfolio with competitive rental property financing. Access lenders that specialize in investor clients.',
     tags: 'Rental Properties · BRRRR · Multi-Unit →',
   },
 ]

@@ -19,7 +19,7 @@ const faqs = [
   {
     question: 'How long does the process take?',
     answer:
-      'Pre-approval can happen within 24–48 hours once we have your documents. From accepted offer to closing, most Ontario purchases take 30–60 days depending on your timeline and lender.',
+      'Pre-approval can happen within 24–48 hours once we have your documents. From accepted offer to closing, most Canadian purchases take 30–60 days depending on your timeline and lender.',
   },
   {
     question: 'What documents will I need?',
