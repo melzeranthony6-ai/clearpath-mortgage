@@ -2,13 +2,6 @@ function Hero() {
   return (
     <section className="hero-bg pt-28 pb-36 sm:pt-36 sm:pb-44 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
-        <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm text-gold-300 font-medium mb-6 fade-up">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          </svg>
-          FSRA Licensed · Canadian Mortgage Broker
-        </div>
-
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-tight mb-5 fade-up fade-up-delay-1">
           Your Best Rate.
           <br />
