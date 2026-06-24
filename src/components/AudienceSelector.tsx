@@ -54,17 +54,17 @@ function AudienceSelector({ onSelect }: AudienceSelectorProps) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 items-stretch">
           {audiences.map((audience) => (
             <button
               key={audience.type}
               type="button"
-              className={`audience-card p-6 text-left !bg-[#0d2049] border-0${activeType === audience.type ? ' active' : ''}`}
+              className={`audience-card w-full h-full flex flex-col justify-start items-start p-6 text-left !bg-[#0d2049] border-0${activeType === audience.type ? ' active' : ''}`}
               onClick={() => handleSelect(audience.type)}
             >
-              <h3 className="font-display text-lg text-white font-bold mb-2">{audience.title}</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">{audience.description}</p>
-              <div className="mt-4">
+              <h3 className="font-display text-lg text-white font-bold mb-2 text-left min-h-14">{audience.title}</h3>
+              <p className="text-gray-300 text-sm leading-relaxed text-left flex-1">{audience.description}</p>
+              <div className="mt-4 text-left">
                 <span
                   style={{
                     backgroundColor: '#e0a800',
