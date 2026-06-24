@@ -25,7 +25,7 @@ function Footer() {
                 </div>
                 <div>
                   <div className="font-display font-bold text-white text-lg">ClearPath Mortgage</div>
-                  <div className="text-[10px] text-navy-400 tracking-widest uppercase">
+                  <div className="text-[10px] text-gray-300 tracking-widest uppercase">
                     Licensed Canadian Mortgage Broker
                   </div>
                 </div>
@@ -34,11 +34,9 @@ function Footer() {
                 Helping Canadian families find better mortgage rates since 2018. Licensed, transparent, and always
                 working for you — not the banks.
               </p>
-              <div className="flex gap-3 mt-5">
-                <div className="trust-badge">SSL Secured</div>
-                <div className="trust-badge">FSRA Licensed</div>
-                <div className="trust-badge">PIPEDA Compliant</div>
-              </div>
+              <p className="text-navy-400 text-xs mt-5">
+                SSL Secured · FSRA Licensed · PIPEDA Compliant
+              </p>
             </div>
 
             <div>
