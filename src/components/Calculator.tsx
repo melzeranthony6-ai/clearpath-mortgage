@@ -63,7 +63,7 @@ function Calculator() {
     <section id="calculator" className="py-16 sm:py-20 bg-white overflow-x-hidden sm:overflow-x-visible">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 w-full min-w-0">
         <div className="text-center mb-10">
-          <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Free Tool</p>
+          <p className="text-[#6b7280] font-semibold text-sm tracking-widest uppercase mb-2">Free Tool</p>
           <h2 className="font-display text-3xl sm:text-4xl text-navy-900">Mortgage Payment Calculator</h2>
           <div className="gold-line mx-auto mt-4"></div>
           <p className="text-navy-600 mt-4">Estimate your monthly mortgage payment in seconds.</p>
