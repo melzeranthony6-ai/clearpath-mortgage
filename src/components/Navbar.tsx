@@ -22,17 +22,9 @@ function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-18 gap-2">
         <a href="#" className="flex items-center gap-2 md:gap-3 group shrink-0 min-w-0">
-          <div className="w-9 h-9 rounded-lg bg-navy-800 flex items-center justify-center shadow shrink-0">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M3 10.5L12 3L21 10.5V20C21 20.55 20.55 21 20 21H15V15H9V21H4C3.45 21 3 20.55 3 20V10.5Z"
-                fill="#e0a800"
-              />
-            </svg>
-          </div>
           <div className="leading-none min-w-0">
-            <span className="font-display font-bold text-navy-900 text-base md:text-lg tracking-tight">ClearPath</span>
-            <span className="block text-[10px] font-body text-navy-500 tracking-widest uppercase">Mortgage</span>
+            <span className="font-display font-bold text-navy-900 text-lg md:text-xl tracking-tight">ClearPath</span>
+            <span className="block text-xs font-body text-navy-500 tracking-widest uppercase">Mortgage</span>
           </div>
         </a>
 

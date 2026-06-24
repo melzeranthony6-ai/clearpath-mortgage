@@ -15,14 +15,6 @@ function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-10 pb-10 border-b border-white/10">
             <div className="sm:col-span-2">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-gold-500 flex items-center justify-center">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M3 10.5L12 3L21 10.5V20C21 20.55 20.55 21 20 21H15V15H9V21H4C3.45 21 3 20.55 3 20V10.5Z"
-                      fill="#081532"
-                    />
-                  </svg>
-                </div>
                 <div>
                   <div className="font-display font-bold text-white text-lg">ClearPath Mortgage</div>
                   <div className="text-[10px] text-gray-300 tracking-widest uppercase">
