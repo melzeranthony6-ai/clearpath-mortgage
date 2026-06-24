@@ -74,26 +74,22 @@ function Hero() {
             </div>
           </div>
 
-          <div>
-            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 bg-[#0d2049] rounded-2xl px-6 py-4 mb-10 fade-up fade-up-delay-2">
-              <div className="text-left sm:text-center">
-                <p className="text-white/70 text-xs uppercase tracking-wider font-medium mb-0.5">Today's Featured Rate</p>
-                <p className="text-white font-display text-2xl sm:text-3xl font-bold">
-                  5-yr fixed from <span className="text-gold-400">4.89%</span>*
-                </p>
+          <div className="relative h-72 sm:h-96 lg:h-[480px] fade-up fade-up-delay-2">
+            <div className="absolute right-4 lg:right-0 top-1/2 -translate-y-1/2 z-10 flex flex-col items-end gap-3">
+              <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-[#0d2049] rounded-2xl px-5 py-3 fade-up fade-up-delay-2">
+                <div className="text-left sm:text-center">
+                  <p className="text-white/70 text-xs uppercase tracking-wider font-medium mb-0.5">Today's Featured Rate</p>
+                  <p className="text-white font-display text-xl sm:text-2xl font-bold">
+                    5-yr fixed from <span className="text-gold-400">4.89%</span>*
+                  </p>
+                </div>
               </div>
-              <div className="hidden sm:block w-px h-10 bg-white/20" />
-              <p className="text-white/60 text-[10px] sm:text-xs max-w-[200px] text-left sm:text-center leading-relaxed">
-                *Rates subject to change. OAC. Based on qualified applicants with 20% down.
-              </p>
+              <img
+                src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80"
+                alt=""
+                className="w-[16.8rem] sm:w-[19.2rem] lg:w-[21.6rem] h-[16.8rem] sm:h-[19.2rem] lg:h-[21.6rem] object-cover rounded-2xl shadow-xl"
+              />
             </div>
-
-            <div className="relative h-72 sm:h-96 lg:h-[480px] fade-up fade-up-delay-2">
-            <img
-              src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80"
-              alt=""
-              className="absolute right-4 lg:right-0 top-1/2 -translate-y-1/2 w-[16.8rem] sm:w-[19.2rem] lg:w-[21.6rem] h-[16.8rem] sm:h-[19.2rem] lg:h-[21.6rem] object-cover rounded-2xl shadow-xl z-10"
-            />
             <img
               src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=300&q=80"
               alt=""
@@ -109,7 +105,6 @@ function Hero() {
               alt=""
               className="absolute left-8 sm:left-16 bottom-4 w-24 sm:w-[7.2rem] h-24 sm:h-[7.2rem] object-cover rounded-xl shadow-lg rotate-1 z-20"
             />
-            </div>
           </div>
         </div>
       </div>
