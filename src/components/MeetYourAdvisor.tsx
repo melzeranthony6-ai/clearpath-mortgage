@@ -6,7 +6,7 @@ function MeetYourAdvisor() {
   ]
 
   return (
-    <section id="advisor" className="py-16 sm:py-20 bg-navy-50">
+    <section id="advisor" className="py-8 sm:py-12 bg-navy-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-white rounded-2xl border border-navy-100 shadow-lg overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
@@ -20,7 +20,7 @@ function MeetYourAdvisor() {
             </div>
 
             <div className="md:col-span-3 p-8 sm:p-10 flex flex-col justify-center">
-              <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Your Advisor</p>
+              <p className="text-[#6b7280] font-semibold text-sm tracking-widest uppercase mb-2">Your Advisor</p>
               <h2 className="font-display text-3xl sm:text-4xl text-navy-900 mb-1">Meet James Morrison</h2>
               <p className="text-navy-600 font-medium text-sm mb-6">
                 Senior Mortgage Advisor · FSRA Licensed · Toronto, ON
