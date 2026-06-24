@@ -40,8 +40,8 @@ function App() {
       <MortgageTypes />
       <MeetYourAdvisor />
       <TrustSection />
-      <FAQ />
       <LeadForm preselectedGoal={preselectedGoal} />
+      <FAQ />
       <Footer />
       <StickyMobileCTA />
       <ChatWidget />
