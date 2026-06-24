@@ -149,7 +149,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
   }
 
   const contactIntro =
-    'No credit impact. No obligation. A mortgage advisor will contact you within 5 minutes during business hours.'
+    'No credit check. No commitment. A licensed advisor will call you within 5 minutes.'
 
   if (showSuccess) {
     return (
@@ -218,17 +218,17 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
           <div className="px-8 pb-8">
             {currentStep === 1 && (
               <div key="step-1" className="form-step-enter">
-                <h3 className="font-display text-xl text-navy-900 font-bold mb-1">What's your mortgage goal?</h3>
-                <p className="text-navy-500 text-sm mb-6">We'll match you with the right lenders and products.</p>
+                <h3 className="font-display text-xl text-navy-900 font-bold mb-1">What are you trying to do?</h3>
+                <p className="text-navy-500 text-sm mb-6">We'll match you with lenders who specialize in exactly this.</p>
                 <div className="grid grid-cols-1 gap-3">
                   {[
-                    { value: 'purchase', title: 'Buy a Home', desc: 'Purchase a new property in Canada' },
-                    { value: 'renew', title: 'Renew or Refinance', desc: 'Get a better rate on your existing mortgage' },
-                    { value: 'invest', title: 'Investment Property', desc: 'Finance a rental or investment property' },
+                    { value: 'purchase', title: 'Buy a Home', desc: 'I want to buy a home' },
+                    { value: 'renew', title: 'Renew or Refinance', desc: 'I want a better rate than what I have' },
+                    { value: 'invest', title: 'Investment Property', desc: "I'm buying an investment property" },
                     {
                       value: 'heloc',
                       title: 'Access Home Equity (HELOC)',
-                      desc: 'Use your equity for renovations or debt consolidation',
+                      desc: 'I want to access my home equity',
                     },
                   ].map((opt) => (
                     <label
