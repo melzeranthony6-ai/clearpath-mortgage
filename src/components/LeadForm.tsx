@@ -191,9 +191,8 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
       <section id="form-section" className="py-16 sm:py-20 bg-navy-50">
         <div className="max-w-xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
-            <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Free Pre-Approval</p>
+            <p className="text-[#6b7280] font-semibold text-sm tracking-widest uppercase mb-2">Free Pre-Approval</p>
             <h2 className="font-display text-3xl sm:text-4xl text-navy-900">Apply in Under 2 Minutes</h2>
-            <div className="gold-line mx-auto mt-4"></div>
             <p className="text-navy-600 mt-4 text-sm">{contactIntro}</p>
           </div>
 
@@ -222,9 +221,8 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
     <section id="form-section" className="py-16 sm:py-20 bg-navy-50">
       <div className="max-w-xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Free Pre-Approval</p>
+          <p className="text-[#6b7280] font-semibold text-sm tracking-widest uppercase mb-2">Free Pre-Approval</p>
           <h2 className="font-display text-3xl sm:text-4xl text-navy-900">Apply in Under 2 Minutes</h2>
-          <div className="gold-line mx-auto mt-4"></div>
           <p className="text-navy-600 mt-4 text-sm">{contactIntro}</p>
         </div>
 
@@ -282,9 +280,6 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                         checked={isOptionSelected('goal', opt.value)}
                         onChange={() => handleOptionChange('goal', opt.value)}
                       />
-                      <div className="w-10 h-10 rounded-lg bg-navy-50 flex items-center justify-center flex-shrink-0">
-                        <GoalIcon type={opt.value} />
-                      </div>
                       <div>
                         <div className="font-semibold text-navy-900 text-sm">{opt.title}</div>
                         <div className="text-xs text-navy-500 mt-0.5">{opt.desc}</div>
