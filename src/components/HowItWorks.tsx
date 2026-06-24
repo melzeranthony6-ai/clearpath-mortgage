@@ -36,8 +36,6 @@ function HowItWorks() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 relative">
-          <div className="hidden sm:block absolute top-[44px] left-[calc(33%-8px)] right-[calc(33%-8px)] h-px bg-gray-200 z-0"></div>
-
           {steps.map((step) => (
             <div key={step.num} className="process-card relative z-10">
               <div className="process-num">{step.num}</div>
