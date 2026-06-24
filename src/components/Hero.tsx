@@ -11,8 +11,7 @@ function Hero() {
             </h1>
 
             <p className="text-[#4a5568] text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed fade-up fade-up-delay-2">
-              We shop over 50 lenders so you don't have to. Whether you're buying your first home in Canada or
-              renewing your mortgage, ClearPath gets you approved and into your home with confidence.
+              Your bank only shows you their rates. We shop 50+ lenders to find your best one, get you approved fast, and walk you through every step.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center fade-up fade-up-delay-3">
@@ -45,7 +44,7 @@ function Hero() {
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
                 <span>
-                  <strong className="text-[#0d2049]">4.9/5</strong> Average Rating
+                  <strong className="text-[#0d2049]">4.9/5</strong> Rating
                 </span>
               </div>
               <div className="w-px h-6 bg-gray-300 shrink-0" />
@@ -57,7 +56,7 @@ function Hero() {
                   <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg>
                 <span>
-                  <strong className="text-[#0d2049]">1,200+</strong> Families Helped
+                  <strong className="text-[#0d2049]">1,200+</strong> Approvals Closed
                 </span>
               </div>
               <div className="w-px h-6 bg-gray-300 shrink-0" />
@@ -68,7 +67,7 @@ function Hero() {
                   <path d="M9 21V9" />
                 </svg>
                 <span>
-                  <strong className="text-[#0d2049]">50+</strong> Lenders Compared
+                  <strong className="text-[#0d2049]">5-Min</strong> Response Time
                 </span>
               </div>
             </div>
