@@ -3,21 +3,21 @@ const steps = [
     num: 1,
     title: 'Apply in Minutes',
     description:
-      'Complete our 4-step online form. No paperwork, no branch visit. Takes under 2 minutes and has no impact on your credit score.',
+      'Fill out our short form in under 2 minutes. No documents needed yet, no branch visit, and no impact on your credit score.',
     badge: 'No credit check',
   },
   {
     num: 2,
     title: 'Get Approved',
     description:
-      'Your dedicated advisor shops your file across 50+ lenders, including banks, credit unions, and monoline lenders, to find your lowest rate.',
+      "We send your file to 50+ lenders and come back with your best rate. You don't have to call anyone or negotiate anything.",
     badge: '50+ lenders compared',
   },
   {
     num: 3,
     title: 'Get Funded',
     description:
-      'We coordinate with your lawyer and lender from approval to close. Your keys or funds arrive on time, every time.',
+      'We handle everything between approval and closing. You show up, sign, and get your keys.',
     badge: 'End-to-end support',
   },
 ]
@@ -31,7 +31,7 @@ function HowItWorks() {
           <h2 className="font-display text-4xl sm:text-5xl text-[#0d2049]">Three Steps to Your New Mortgage</h2>
           <div className="section-line mx-auto mt-4"></div>
           <p className="text-[#4a5568] mt-4 max-w-xl mx-auto">
-            We've helped over 1,200 Canadian families navigate the mortgage process. Here's how simple we make it.
+            Most people think getting a mortgage is complicated. Here's how we make it simple.
           </p>
         </div>
 
