@@ -35,22 +35,14 @@ function HowItWorks() {
           </p>
         </div>
 
-        <div className="rounded-2xl overflow-hidden mb-10">
-          <img
-            src="/images/how-it-works.jpg"
-            alt="Mortgage advisor reviewing documents with clients"
-            className="w-full h-48 sm:h-64 object-cover"
-          />
-        </div>
-
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 relative">
           <div className="hidden sm:block absolute top-[44px] left-[calc(33%-8px)] right-[calc(33%-8px)] h-px bg-gray-200 z-0"></div>
 
           {steps.map((step) => (
             <div key={step.num} className="process-card relative z-10">
               <div className="process-num">{step.num}</div>
-              <h3 className="font-display text-lg text-[#0d2049] font-bold mb-3">{step.title}</h3>
-              <p className="text-[#4a5568] text-sm leading-relaxed">{step.description}</p>
+              <h3 className="font-display text-lg text-[#0d2049] font-bold mb-3 text-left">{step.title}</h3>
+              <p className="text-[#4a5568] text-sm leading-relaxed text-left">{step.description}</p>
               <div className="mt-4 inline-block text-xs bg-gray-100 text-navy-700 font-semibold px-3 py-1.5 rounded-full">
                 {step.badge}
               </div>
