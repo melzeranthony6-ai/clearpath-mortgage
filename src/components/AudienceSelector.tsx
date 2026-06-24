@@ -59,12 +59,12 @@ function AudienceSelector({ onSelect }: AudienceSelectorProps) {
             <button
               key={audience.type}
               type="button"
-              className={`audience-card p-6 text-left${activeType === audience.type ? ' active' : ''}`}
+              className={`audience-card p-6 text-left !bg-[#0d2049] border-0${activeType === audience.type ? ' active' : ''}`}
               onClick={() => handleSelect(audience.type)}
             >
-              <h3 className="font-display text-lg text-[#0d2049] font-bold mb-2">{audience.title}</h3>
-              <p className="text-[#4a5568] text-sm leading-relaxed">{audience.description}</p>
-              <div className="mt-4 text-xs font-semibold text-navy-600 tracking-wide">{audience.tags}</div>
+              <h3 className="font-display text-lg text-white font-bold mb-2">{audience.title}</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">{audience.description}</p>
+              <div className="mt-4 text-xs font-semibold text-gray-400 tracking-wide">{audience.tags}</div>
             </button>
           ))}
         </div>
