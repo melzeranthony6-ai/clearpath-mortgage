@@ -29,15 +29,14 @@ const faqs = [
 ]
 
 function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <section id="faq" className="py-16 sm:py-20 bg-navy-50">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Common Questions</p>
+          <p className="text-[#6b7280] font-semibold text-sm tracking-widest uppercase mb-2">Common Questions</p>
           <h2 className="font-display text-3xl sm:text-4xl text-navy-900">Frequently Asked Questions</h2>
-          <div className="gold-line mx-auto mt-4"></div>
           <p className="text-navy-600 mt-4">Everything you need to know before you apply.</p>
         </div>
 
@@ -67,7 +66,7 @@ function FAQ() {
                   </svg>
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-4 text-sm text-navy-600 leading-relaxed border-t border-navy-50 pt-3">
+                  <div className="px-5 pb-4 text-sm text-[#374151] leading-relaxed border-t border-navy-50 pt-3">
                     {faq.answer}
                   </div>
                 )}
