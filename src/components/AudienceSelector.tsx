@@ -7,14 +7,12 @@ interface AudienceSelectorProps {
 
 const audiences: {
   type: AudienceType
-  image: string
   title: string
   description: string
   tags: string
 }[] = [
   {
     type: 'first-time',
-    image: '/images/audience-buyer.jpg',
     title: 'First Time Buyer',
     description:
       "Step-by-step guidance from pre-approval to keys in hand. We'll walk you through every Canada-specific incentive available.",
@@ -22,7 +20,6 @@ const audiences: {
   },
   {
     type: 'refinancing',
-    image: '/images/audience-refinance.jpg',
     title: 'Refinancing',
     description:
       "Tap into your home equity or lower your monthly payments. We'll find you a better rate than your bank is offering.",
@@ -30,7 +27,6 @@ const audiences: {
   },
   {
     type: 'investment',
-    image: '/images/audience-investment.jpg',
     title: 'Property Investment',
     description:
       'Grow your Canadian portfolio with competitive rental property financing. Access lenders that specialize in investor clients.',
@@ -63,21 +59,12 @@ function AudienceSelector({ onSelect }: AudienceSelectorProps) {
             <button
               key={audience.type}
               type="button"
-              className={`audience-card text-left p-0 overflow-hidden${activeType === audience.type ? ' active' : ''}`}
+              className={`audience-card p-6 text-center${activeType === audience.type ? ' active' : ''}`}
               onClick={() => handleSelect(audience.type)}
             >
-              <div className="h-36 overflow-hidden">
-                <img
-                  src={audience.image}
-                  alt=""
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6 pt-5 text-center">
-                <h3 className="font-display text-lg text-navy-900 font-bold mb-2">{audience.title}</h3>
-                <p className="text-navy-600 text-sm leading-relaxed">{audience.description}</p>
-                <div className="mt-4 text-xs font-semibold text-gold-600 tracking-wide">{audience.tags}</div>
-              </div>
+              <h3 className="font-display text-lg text-navy-900 font-bold mb-2">{audience.title}</h3>
+              <p className="text-navy-600 text-sm leading-relaxed">{audience.description}</p>
+              <div className="mt-4 text-xs font-semibold text-gold-600 tracking-wide">{audience.tags}</div>
             </button>
           ))}
         </div>
