@@ -75,8 +75,8 @@ function Hero() {
           </div>
 
           <div className="relative h-72 sm:h-96 lg:h-[480px] fade-up fade-up-delay-2">
-            <div className="absolute right-4 lg:right-0 top-1/2 -translate-y-1/2 z-10 flex flex-col items-end gap-3">
-              <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-[#0d2049] rounded-2xl px-5 py-3 fade-up fade-up-delay-2">
+            <div className="absolute right-4 lg:right-0 bottom-[calc(50%+8.4rem+0.75rem)] sm:bottom-[calc(50%+9.6rem+0.75rem)] lg:bottom-[calc(50%+10.8rem+0.75rem)] z-30 fade-up fade-up-delay-2">
+              <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-[#0d2049] rounded-2xl px-5 py-3">
                 <div className="text-left sm:text-center">
                   <p className="text-white/70 text-xs uppercase tracking-wider font-medium mb-0.5">Today's Featured Rate</p>
                   <p className="text-white font-display text-xl sm:text-2xl font-bold">
@@ -84,12 +84,12 @@ function Hero() {
                   </p>
                 </div>
               </div>
-              <img
-                src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80"
-                alt=""
-                className="w-[16.8rem] sm:w-[19.2rem] lg:w-[21.6rem] h-[16.8rem] sm:h-[19.2rem] lg:h-[21.6rem] object-cover rounded-2xl shadow-xl"
-              />
             </div>
+            <img
+              src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80"
+              alt=""
+              className="absolute right-4 lg:right-0 top-1/2 -translate-y-1/2 w-[16.8rem] sm:w-[19.2rem] lg:w-[21.6rem] h-[16.8rem] sm:h-[19.2rem] lg:h-[21.6rem] object-cover rounded-2xl shadow-xl z-10"
+            />
             <img
               src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=300&q=80"
               alt=""
