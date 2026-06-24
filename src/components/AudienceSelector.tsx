@@ -43,7 +43,7 @@ function AudienceSelector({ onSelect }: AudienceSelectorProps) {
   }
 
   return (
-    <section className="py-16 sm:py-24 bg-white" id="audience">
+    <section className="pt-8 pb-16 sm:pt-12 sm:pb-24 bg-white" id="audience">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
           <p className="text-gray-500 font-semibold text-sm tracking-widest uppercase mb-2">Who We Help</p>
@@ -59,7 +59,7 @@ function AudienceSelector({ onSelect }: AudienceSelectorProps) {
             <button
               key={audience.type}
               type="button"
-              className={`audience-card p-6 text-center${activeType === audience.type ? ' active' : ''}`}
+              className={`audience-card p-6 text-left${activeType === audience.type ? ' active' : ''}`}
               onClick={() => handleSelect(audience.type)}
             >
               <h3 className="font-display text-lg text-[#0d2049] font-bold mb-2">{audience.title}</h3>
