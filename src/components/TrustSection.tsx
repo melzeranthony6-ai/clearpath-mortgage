@@ -14,7 +14,7 @@ const lenders = [
   { name: 'CIBC', logo: '/lenders/cibc.png' },
   { name: 'First National', logo: '/lenders/first-national.png' },
   { name: 'MCAP', logo: '/lenders/mcap.png' },
-  { name: 'Merix', logo: '/lenders/merix.png' },
+  { name: 'Merix', logo: '/lenders/merix.svg' },
 ]
 
 const testimonials = [
@@ -58,11 +58,11 @@ function TrustSection() {
 
         <div className="flex flex-wrap justify-center gap-4 mb-16">
           {lenders.map((lender) => (
-            <div key={lender.name} className="flex items-center justify-center px-6 py-4 min-w-[110px] min-h-[52px] rounded-xl bg-[#0d2049] text-white">
+            <div key={lender.name} className="flex items-center justify-center w-[128px] h-[68px] rounded-xl bg-[#0d2049] text-white shrink-0">
               <img
                 src={lender.logo}
                 alt={lender.name}
-                className="max-h-[40px] object-contain bg-white"
+                className="max-h-[40px] max-w-[96px] object-contain bg-white"
               />
             </div>
           ))}
