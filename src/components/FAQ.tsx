@@ -4,27 +4,27 @@ const faqs = [
   {
     question: 'Does applying affect my credit score?',
     answer:
-      'Our initial online application does not require a credit check. A formal credit inquiry only happens when you choose to proceed with a full pre-approval with a specific lender, and we always explain this before it happens.',
+      'No. Our initial form is a soft inquiry only. A hard credit check only happens later, when you choose to proceed with a specific lender, and we always tell you before it happens.',
   },
   {
     question: 'How is a mortgage broker different from my bank?',
     answer:
-      'Your bank can only offer their own products. As a broker, we shop your file across 50+ lenders, including banks, credit unions, and monoline lenders, to find the lowest rate and best terms for your situation. Our service is free for most residential mortgages.',
+      'Your bank shows you one product, theirs. We shop 50+ lenders and bring you the best option for your situation. We work for you, not the lender.',
   },
   {
     question: 'Can self-employed people get approved?',
     answer:
-      'Yes. We specialize in self-employed and non-traditional income. We work with lenders who accept stated income, business bank statements, and alternative documentation, not just T4s.',
+      'Yes. We work with lenders who understand self-employed income and know how to structure your file. This is one of our most common approvals.',
   },
   {
     question: 'How long does the process take?',
     answer:
-      'Pre-approval can happen within 24–48 hours once we have your documents. From accepted offer to closing, most Canadian purchases take 30–60 days depending on your timeline and lender.',
+      'Pre-approval can happen within 24 to 48 hours. Full approval timelines depend on the lender and your situation, but we keep you updated at every step.',
   },
   {
     question: 'What documents will I need?',
     answer:
-      'Typically: government ID, recent pay stubs or Notice of Assessment (self-employed), bank statements, and details on the property. Your advisor will send a tailored checklist based on your situation.',
+      'For the initial application, nothing. Once we move forward, we\'ll send you a simple list based on your specific situation. No guessing.',
   },
 ]
 
