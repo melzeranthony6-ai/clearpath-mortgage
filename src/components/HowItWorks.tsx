@@ -43,7 +43,7 @@ function HowItWorks() {
               <div className="process-num">{step.num}</div>
               <h3 className="font-display text-lg text-[#0d2049] font-bold mb-3 text-left">{step.title}</h3>
               <p className="text-[#4a5568] text-sm leading-relaxed text-left">{step.description}</p>
-              <div className="mt-4 inline-block text-xs bg-gray-100 text-navy-700 font-semibold px-3 py-1.5 rounded-full">
+              <div className="mt-4 inline-block text-xs bg-[#0d2049] text-white font-semibold px-3 py-1.5 rounded-full">
                 {step.badge}
               </div>
             </div>
