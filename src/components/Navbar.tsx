@@ -66,7 +66,7 @@ function Navbar() {
         <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
           <a
             href="#form-section"
-            className="btn-gold inline-flex items-center whitespace-nowrap gap-1 text-[10px] leading-tight py-1 px-2 sm:text-xs sm:py-1.5 sm:px-2.5 md:text-sm md:py-2.5 md:px-5 md:gap-2"
+            className="btn-gold hidden md:inline-flex items-center whitespace-nowrap gap-1 text-[10px] leading-tight py-1 px-2 sm:text-xs sm:py-1.5 sm:px-2.5 md:text-sm md:py-2.5 md:px-5 md:gap-2"
           >
             <svg
               className="shrink-0 w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-[15px] md:h-[15px]"
