@@ -7,14 +7,14 @@ const StarIcon = ({ size = 16 }: { size?: number }) => (
 )
 
 const lenders = [
-  'RBC',
-  'TD Bank',
-  'Scotiabank',
-  'BMO',
-  'CIBC',
-  'First National',
-  'MCAP',
-  'Merix',
+  { name: 'RBC', logo: '/lenders/rbc.svg' },
+  { name: 'TD Bank', logo: '/lenders/td.png' },
+  { name: 'Scotiabank', logo: '/lenders/scotiabank.png' },
+  { name: 'BMO', logo: '/lenders/bmo.png' },
+  { name: 'CIBC', logo: '/lenders/cibc.png' },
+  { name: 'First National', logo: '/lenders/first-national.png' },
+  { name: 'MCAP', logo: '/lenders/mcap.png' },
+  { name: 'Merix', logo: '/lenders/merix.png' },
 ]
 
 const testimonials = [
@@ -58,8 +58,12 @@ function TrustSection() {
 
         <div className="flex flex-wrap justify-center gap-4 mb-16">
           {lenders.map((lender) => (
-            <div key={lender} className="flex items-center justify-center px-6 py-4 min-w-[110px] min-h-[52px] rounded-xl bg-[#0d2049] text-white">
-              {lender}
+            <div key={lender.name} className="flex items-center justify-center px-6 py-4 min-w-[110px] min-h-[52px] rounded-xl bg-[#0d2049] text-white">
+              <img
+                src={lender.logo}
+                alt={lender.name}
+                className="max-h-[40px] object-contain bg-white"
+              />
             </div>
           ))}
         </div>
