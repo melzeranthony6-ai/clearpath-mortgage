@@ -21,10 +21,10 @@ const types = [
 
 function MortgageTypes() {
   return (
-    <section id="mortgage-types" className="py-16 sm:py-24 bg-[#F8F9FA]">
+    <section id="mortgage-types" className="pt-8 pb-16 sm:pt-12 sm:pb-24 bg-[#F8F9FA]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <p className="text-gray-500 font-semibold text-sm tracking-widest uppercase mb-2">Products</p>
+          <p className="text-[#6b7280] font-semibold text-sm tracking-widest uppercase mb-2">Products</p>
           <h2 className="font-display text-4xl sm:text-5xl text-[#0d2049]">Mortgage Options We Compare</h2>
           <div className="section-line mx-auto mt-4"></div>
           <p className="text-[#4a5568] mt-4 max-w-xl mx-auto">
