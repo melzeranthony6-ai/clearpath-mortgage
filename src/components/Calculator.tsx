@@ -63,10 +63,10 @@ function Calculator() {
     <section id="calculator" className="py-16 sm:py-20 bg-white overflow-x-hidden sm:overflow-x-visible">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 w-full min-w-0">
         <div className="text-center mb-10">
-          <p className="text-[#6b7280] font-semibold text-sm tracking-widest uppercase mb-2">Free Tool</p>
+          <p className="text-[#6b7280] font-semibold text-sm tracking-widest uppercase mb-2">CALCULATE YOUR PAYMENT</p>
           <h2 className="font-display text-3xl sm:text-4xl text-navy-900">Mortgage Payment Calculator</h2>
           <div className="gold-line mx-auto mt-4"></div>
-          <p className="text-navy-600 mt-4">Estimate your monthly mortgage payment in seconds.</p>
+          <p className="text-navy-600 mt-4">See what your payments could look like before you talk to anyone. No commitment, no credit check.</p>
         </div>
 
         <div className="bg-navy-50 rounded-2xl p-4 sm:p-10 border border-navy-100 w-full min-w-0 max-w-full">
@@ -194,7 +194,7 @@ function Calculator() {
               </div>
             </div>
             <a href="#form-section" className="btn-gold mt-6 inline-flex text-sm py-3 px-7 max-w-full">
-              Get My Best Rate →
+              Get My Actual Rate →
             </a>
           </div>
 
