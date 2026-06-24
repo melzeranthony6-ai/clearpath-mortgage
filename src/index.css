@@ -16,29 +16,17 @@ html {
   scroll-behavior: smooth;
 }
 
-.hero-bg {
-  background:
-    linear-gradient(rgba(8, 21, 50, 0.75), rgba(8, 21, 50, 0.75)),
-    url('/images/hero.jpg') center / cover no-repeat;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: white;
-  clip-path: ellipse(55% 100% at 50% 100%);
-}
-
 .gold-line {
   width: 64px;
   height: 3px;
   background: #e0a800;
+  border-radius: 2px;
+}
+
+.section-line {
+  width: 64px;
+  height: 2px;
+  background: #e5e7eb;
   border-radius: 2px;
 }
 
@@ -99,24 +87,18 @@ html {
 }
 
 .audience-card {
-  border: 2px solid #e2e8f0;
-  border-radius: 16px;
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.25s ease;
-  background: white;
+  background: #f3f4f6;
+  box-shadow: none;
 }
 
 .audience-card:hover,
 .audience-card.active {
-  border-color: #1a3f7f;
-  background: #eef2f9;
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(19, 46, 98, 0.15);
-}
-
-.audience-card.active {
-  border-color: #e0a800;
-  background: #fffbea;
+  box-shadow: 0 8px 24px rgba(19, 46, 98, 0.1);
 }
 
 .progress-step {
@@ -185,28 +167,13 @@ html {
   transform: translateY(-1px);
 }
 
-.testimonial-card {
-  background: white;
-  border-radius: 16px;
-  padding: 28px 24px;
-  box-shadow: 0 4px 24px rgba(19, 46, 98, 0.08);
-  border: 1px solid #e2e8f0;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(19, 46, 98, 0.12);
-  border-color: #cbd5e1;
-}
-
 .process-card {
-  background: white;
-  border-radius: 16px;
+  background: transparent;
+  border-radius: 0;
   padding: 36px 28px;
   text-align: center;
-  box-shadow: 0 2px 16px rgba(19, 46, 98, 0.06);
-  border: 1px solid #e2e8f0;
+  box-shadow: none;
+  border: none;
   position: relative;
 }
 

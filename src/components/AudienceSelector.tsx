@@ -43,13 +43,13 @@ function AudienceSelector({ onSelect }: AudienceSelectorProps) {
   }
 
   return (
-    <section className="py-16 sm:py-20 bg-white" id="audience">
+    <section className="py-16 sm:py-24 bg-white" id="audience">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Who We Help</p>
-          <h2 className="font-display text-3xl sm:text-4xl text-navy-900">What Brings You Here?</h2>
-          <div className="gold-line mx-auto mt-4"></div>
-          <p className="text-navy-600 mt-4 max-w-xl mx-auto">
+          <p className="text-gray-500 font-semibold text-sm tracking-widest uppercase mb-2">Who We Help</p>
+          <h2 className="font-display text-4xl sm:text-5xl text-[#0d2049]">What Brings You Here?</h2>
+          <div className="section-line mx-auto mt-4"></div>
+          <p className="text-[#4a5568] mt-4 max-w-xl mx-auto">
             Select your situation and we'll show you how we can help.
           </p>
         </div>
@@ -62,9 +62,9 @@ function AudienceSelector({ onSelect }: AudienceSelectorProps) {
               className={`audience-card p-6 text-center${activeType === audience.type ? ' active' : ''}`}
               onClick={() => handleSelect(audience.type)}
             >
-              <h3 className="font-display text-lg text-navy-900 font-bold mb-2">{audience.title}</h3>
-              <p className="text-navy-600 text-sm leading-relaxed">{audience.description}</p>
-              <div className="mt-4 text-xs font-semibold text-gold-600 tracking-wide">{audience.tags}</div>
+              <h3 className="font-display text-lg text-[#0d2049] font-bold mb-2">{audience.title}</h3>
+              <p className="text-[#4a5568] text-sm leading-relaxed">{audience.description}</p>
+              <div className="mt-4 text-xs font-semibold text-navy-600 tracking-wide">{audience.tags}</div>
             </button>
           ))}
         </div>

@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 const StarIcon = ({ size = 16 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="#e0a800">
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
@@ -40,8 +42,14 @@ const testimonials = [
 ]
 
 function TrustSection() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const current = testimonials[activeIndex]
+
+  const goPrev = () => setActiveIndex((i) => (i === 0 ? testimonials.length - 1 : i - 1))
+  const goNext = () => setActiveIndex((i) => (i === testimonials.length - 1 ? 0 : i + 1))
+
   return (
-    <section id="testimonials" className="py-16 sm:py-20 bg-white">
+    <section id="testimonials" className="py-16 sm:py-24 bg-[#F8F9FA]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Trusted Partners</p>
@@ -66,28 +74,60 @@ function TrustSection() {
           <p className="text-navy-800 font-semibold">4.9 out of 5 — Based on 380+ client reviews</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <div key={t.name} className="testimonial-card">
-              <div className="flex gap-0.5 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <StarIcon key={i} />
-                ))}
-              </div>
-              <p className="text-navy-700 text-sm leading-relaxed mb-5">{t.quote}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 overflow-hidden rounded-2xl shadow-lg">
+          <div className="bg-[#0d2049] flex items-center justify-center p-10 sm:p-14">
+            <h3 className="font-display text-3xl sm:text-4xl text-white font-bold leading-tight text-center md:text-left">
+              Real clients.
+              <br />
+              Real results.
+            </h3>
+          </div>
+
+          <div className="bg-white p-10 sm:p-14 flex flex-col justify-between min-h-[320px]">
+            <div>
+              <span className="font-display text-6xl text-gray-200 leading-none select-none" aria-hidden="true">
+                &ldquo;
+              </span>
+              <p className="text-[#4a5568] text-base sm:text-lg leading-relaxed -mt-4 mb-8">{current.quote}</p>
               <div className="flex items-center gap-3">
                 <img
-                  src={t.photo}
-                  alt={t.name}
-                  className="w-10 h-10 rounded-full object-cover ring-2 ring-navy-100"
+                  src={current.photo}
+                  alt={current.name}
+                  className="w-10 h-10 rounded-full object-cover ring-2 ring-gray-100"
                 />
                 <div>
-                  <div className="font-semibold text-navy-900 text-sm">{t.name}</div>
-                  <div className="text-xs text-navy-500">{t.location}</div>
+                  <div className="font-semibold text-[#0d2049] text-sm">{current.name}</div>
+                  <div className="text-xs text-gray-500">{current.location}</div>
                 </div>
               </div>
             </div>
-          ))}
+
+            <div className="flex items-center gap-3 mt-8">
+              <button
+                type="button"
+                onClick={goPrev}
+                aria-label="Previous testimonial"
+                className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-[#0d2049] hover:bg-gray-50 transition-colors"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={goNext}
+                aria-label="Next testimonial"
+                className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-[#0d2049] hover:bg-gray-50 transition-colors"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+              <span className="text-xs text-gray-400 ml-2">
+                {activeIndex + 1} / {testimonials.length}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

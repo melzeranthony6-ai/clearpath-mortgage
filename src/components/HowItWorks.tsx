@@ -24,18 +24,18 @@ const steps = [
 
 function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-16 sm:py-20 bg-navy-50">
+    <section id="how-it-works" className="py-16 sm:py-24 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Simple Process</p>
-          <h2 className="font-display text-3xl sm:text-4xl text-navy-900">Three Steps to Your New Mortgage</h2>
-          <div className="gold-line mx-auto mt-4"></div>
-          <p className="text-navy-600 mt-4 max-w-xl mx-auto">
+          <p className="text-gray-500 font-semibold text-sm tracking-widest uppercase mb-2">Simple Process</p>
+          <h2 className="font-display text-4xl sm:text-5xl text-[#0d2049]">Three Steps to Your New Mortgage</h2>
+          <div className="section-line mx-auto mt-4"></div>
+          <p className="text-[#4a5568] mt-4 max-w-xl mx-auto">
             We've helped over 1,200 Canadian families navigate the mortgage process. Here's how simple we make it.
           </p>
         </div>
 
-        <div className="rounded-2xl overflow-hidden mb-10 border border-navy-100 shadow-md">
+        <div className="rounded-2xl overflow-hidden mb-10">
           <img
             src="/images/how-it-works.jpg"
             alt="Mortgage advisor reviewing documents with clients"
@@ -44,14 +44,14 @@ function HowItWorks() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 relative">
-          <div className="hidden sm:block absolute top-[44px] left-[calc(33%-8px)] right-[calc(33%-8px)] h-0.5 bg-gradient-to-r from-gold-400 to-gold-300 z-0"></div>
+          <div className="hidden sm:block absolute top-[44px] left-[calc(33%-8px)] right-[calc(33%-8px)] h-px bg-gray-200 z-0"></div>
 
           {steps.map((step) => (
             <div key={step.num} className="process-card relative z-10">
               <div className="process-num">{step.num}</div>
-              <h3 className="font-display text-lg text-navy-900 font-bold mb-3">{step.title}</h3>
-              <p className="text-navy-600 text-sm leading-relaxed">{step.description}</p>
-              <div className="mt-4 inline-block text-xs bg-navy-50 text-navy-700 font-semibold px-3 py-1.5 rounded-full border border-navy-100">
+              <h3 className="font-display text-lg text-[#0d2049] font-bold mb-3">{step.title}</h3>
+              <p className="text-[#4a5568] text-sm leading-relaxed">{step.description}</p>
+              <div className="mt-4 inline-block text-xs bg-gray-100 text-navy-700 font-semibold px-3 py-1.5 rounded-full">
                 {step.badge}
               </div>
             </div>

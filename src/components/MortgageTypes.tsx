@@ -38,13 +38,13 @@ const types = [
 
 function MortgageTypes() {
   return (
-    <section id="mortgage-types" className="py-16 sm:py-20 bg-white">
+    <section id="mortgage-types" className="py-16 sm:py-24 bg-[#F8F9FA]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Products</p>
-          <h2 className="font-display text-3xl sm:text-4xl text-navy-900">Mortgage Options We Compare</h2>
-          <div className="gold-line mx-auto mt-4"></div>
-          <p className="text-navy-600 mt-4 max-w-xl mx-auto">
+          <p className="text-gray-500 font-semibold text-sm tracking-widest uppercase mb-2">Products</p>
+          <h2 className="font-display text-4xl sm:text-5xl text-[#0d2049]">Mortgage Options We Compare</h2>
+          <div className="section-line mx-auto mt-4"></div>
+          <p className="text-[#4a5568] mt-4 max-w-xl mx-auto">
             We help you choose the right product — not just the lowest rate.
           </p>
         </div>
@@ -53,16 +53,16 @@ function MortgageTypes() {
           {types.map((type) => (
             <div
               key={type.title}
-              className="bg-navy-50 rounded-2xl border border-navy-100 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-250"
+              className="bg-white rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-250"
             >
-              <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-4 shadow-sm">
+              <div className="w-14 h-14 rounded-2xl bg-[#F3F4F6] flex items-center justify-center mb-4">
                 {type.icon}
               </div>
-              <span className="inline-block text-xs font-semibold text-gold-700 bg-gold-100 px-2.5 py-1 rounded-full mb-3">
+              <span className="inline-block text-xs font-semibold text-navy-700 bg-gray-100 px-2.5 py-1 rounded-full mb-3">
                 {type.badge}
               </span>
-              <h3 className="font-display text-lg text-navy-900 font-bold mb-2">{type.title}</h3>
-              <p className="text-navy-600 text-sm leading-relaxed">{type.description}</p>
+              <h3 className="font-display text-lg text-[#0d2049] font-bold mb-2">{type.title}</h3>
+              <p className="text-[#4a5568] text-sm leading-relaxed">{type.description}</p>
             </div>
           ))}
         </div>
