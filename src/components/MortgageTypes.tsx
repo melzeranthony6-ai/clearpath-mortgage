@@ -2,19 +2,19 @@ const types = [
   {
     title: 'Fixed Rate',
     description:
-      'Lock in your rate for the full term. Predictable payments and peace of mind, ideal if you plan to stay in your home long-term.',
+      'Your rate stays the same no matter what happens to the market. Best if you want predictable payments and plan to stay put.',
     badge: 'Most popular',
   },
   {
     title: 'Variable Rate',
     description:
-      'Rate moves with prime. Often lower to start and great if you expect rates to fall or plan to sell within a few years.',
+      'Starts lower than fixed and can save you money if rates drop. Makes sense if you have flexibility and a shorter timeline.',
     badge: 'Lower entry rate',
   },
   {
     title: 'HELOC',
     description:
-      'Access your home equity as a revolving line of credit. Perfect for renovations, investments, or consolidating higher-interest debt.',
+      "Use the equity you've already built to fund renovations, pay off debt, or invest. You only pay interest on what you actually use.",
     badge: 'Flexible access',
   },
 ]
@@ -28,7 +28,7 @@ function MortgageTypes() {
           <h2 className="font-display text-4xl sm:text-5xl text-[#0d2049]">Mortgage Options We Compare</h2>
           <div className="section-line mx-auto mt-4"></div>
           <p className="text-[#4a5568] mt-4 max-w-xl mx-auto">
-            We help you choose the right product, not just the lowest rate.
+            The right mortgage isn't always the lowest rate. We help you understand what fits your situation and why.
           </p>
         </div>
 
