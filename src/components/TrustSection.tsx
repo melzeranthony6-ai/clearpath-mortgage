@@ -56,13 +56,13 @@ function TrustSection() {
           <h2 className="font-display text-3xl sm:text-4xl text-navy-900">We Work With Canada's Top Lenders</h2>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        <div className="flex flex-wrap md:flex-nowrap justify-center gap-2 md:gap-3 mb-16">
           {lenders.map((lender) => (
-            <div key={lender.name} className="flex items-center justify-center w-[128px] h-[68px] rounded-xl bg-[#0d2049] text-white shrink-0">
+            <div key={lender.name} className="flex items-center justify-center w-[96px] md:w-[104px] h-[48px] md:h-[52px] rounded-xl bg-[#0d2049] text-white shrink-0">
               <img
                 src={lender.logo}
                 alt={lender.name}
-                className="max-h-[40px] max-w-[96px] object-contain bg-white"
+                className="max-h-[28px] md:max-h-[30px] max-w-[72px] md:max-w-[80px] object-contain bg-white"
               />
             </div>
           ))}
