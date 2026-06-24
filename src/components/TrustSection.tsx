@@ -78,11 +78,11 @@ function TrustSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 overflow-hidden rounded-2xl shadow-lg">
-          <div className="min-h-[320px]">
+          <div className="relative h-48 sm:h-56 md:h-full overflow-hidden">
             <img
               src={current.photo}
               alt={current.name}
-              className="w-full h-full min-h-[320px] object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
 
