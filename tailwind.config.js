@@ -31,7 +31,7 @@ export default {
         18: '4.5rem',
       },
       fontFamily: {
-        display: ['"Playfair Display"', 'Georgia', 'serif'],
+        display: ['"Outfit"', 'sans-serif'],
         body: ['"DM Sans"', 'sans-serif'],
       },
     },
