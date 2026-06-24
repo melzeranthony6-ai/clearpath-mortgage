@@ -6,41 +6,6 @@ interface LeadFormProps {
 
 const totalSteps = 4
 
-const GoalIcon = ({ type }: { type: string }) => {
-  const props = { width: 22, height: 22, viewBox: '0 0 24 24', fill: 'none', stroke: '#1a3f7f', strokeWidth: 1.8 }
-
-  switch (type) {
-    case 'purchase':
-      return (
-        <svg {...props}>
-          <path d="M3 10.5L12 3L21 10.5V20C21 20.55 20.55 21 20 21H15V15H9V21H4C3.45 21 3 20.55 3 20V10.5Z" />
-        </svg>
-      )
-    case 'renew':
-      return (
-        <svg {...props}>
-          <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-        </svg>
-      )
-    case 'invest':
-      return (
-        <svg {...props}>
-          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-          <polyline points="16 7 22 7 22 13" />
-        </svg>
-      )
-    case 'heloc':
-      return (
-        <svg {...props}>
-          <rect x="2" y="5" width="20" height="14" rx="2" />
-          <line x1="2" y1="10" x2="22" y2="10" />
-        </svg>
-      )
-    default:
-      return null
-  }
-}
-
 const EmploymentIcon = ({ type }: { type: string }) => {
   const props = { width: 20, height: 20, viewBox: '0 0 24 24', fill: 'none', stroke: '#1a3f7f', strokeWidth: 1.8 }
 
