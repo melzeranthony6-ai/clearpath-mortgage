@@ -52,9 +52,8 @@ function TrustSection() {
     <section id="testimonials" className="py-16 sm:py-24 bg-[#F8F9FA]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Trusted Partners</p>
+          <p className="text-[#6b7280] font-semibold text-sm tracking-widest uppercase mb-2">Trusted Partners</p>
           <h2 className="font-display text-3xl sm:text-4xl text-navy-900">We Work With Canada's Top Lenders</h2>
-          <div className="gold-line mx-auto mt-4"></div>
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 mb-16">
