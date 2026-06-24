@@ -36,13 +36,13 @@ function MortgageTypes() {
           {types.map((type) => (
             <div
               key={type.title}
-              className="bg-white rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-250"
+              className="bg-[#0d2049] rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-250"
             >
-              <span className="inline-block text-xs font-semibold text-navy-700 bg-gray-100 px-2.5 py-1 rounded-full mb-3">
+              <span className="inline-block text-xs font-semibold text-[#0d2049] bg-[#e0a800] px-2.5 py-1 rounded-full mb-3">
                 {type.badge}
               </span>
-              <h3 className="font-display text-lg text-[#0d2049] font-bold mb-2">{type.title}</h3>
-              <p className="text-[#4a5568] text-sm leading-relaxed">{type.description}</p>
+              <h3 className="font-display text-lg text-white font-bold mb-2">{type.title}</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">{type.description}</p>
             </div>
           ))}
         </div>

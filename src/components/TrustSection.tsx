@@ -58,7 +58,7 @@ function TrustSection() {
 
         <div className="flex flex-wrap justify-center gap-4 mb-16">
           {lenders.map((lender) => (
-            <div key={lender} className="lender-logo-box">
+            <div key={lender} className="flex items-center justify-center px-6 py-4 min-w-[110px] min-h-[52px] rounded-xl bg-[#0d2049] text-white">
               {lender}
             </div>
           ))}
