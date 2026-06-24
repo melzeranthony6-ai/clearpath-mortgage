@@ -37,7 +37,7 @@ function Hero() {
               </a>
               <a
                 href="#calculator"
-                className="flex items-center gap-2 text-[#0d2049] hover:text-navy-600 text-sm font-medium transition-colors"
+                className="flex items-center gap-2 text-[#0d2049] hover:text-navy-600 text-sm font-medium transition-colors whitespace-nowrap"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="4" y="2" width="16" height="20" rx="2" />
@@ -89,7 +89,7 @@ function Hero() {
 
           <div className="relative h-72 sm:h-96 lg:h-[480px] fade-up fade-up-delay-2">
             <img
-              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80"
+              src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80"
               alt=""
               className="absolute right-4 lg:right-0 top-1/2 -translate-y-1/2 w-[16.8rem] sm:w-[19.2rem] lg:w-[21.6rem] h-[16.8rem] sm:h-[19.2rem] lg:h-[21.6rem] object-cover rounded-2xl shadow-xl z-10"
             />
