@@ -1,7 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 function formatCurrency(v: number) {
   return '$' + Math.round(v).toLocaleString('en-CA')
+}
+
+function formatAmountInput(v: number) {
+  return Math.round(v).toLocaleString('en-CA')
+}
+
+function parseAmountInput(raw: string) {
+  const digits = raw.replace(/\D/g, '')
+  return digits ? parseInt(digits, 10) : 0
 }
 
 function calcPayment(amount: number, annualRate: number, years: number) {
@@ -26,25 +35,29 @@ function calcPayment(amount: number, annualRate: number, years: number) {
 }
 
 function Calculator() {
-  const [amount, setAmount] = useState(500000)
+  const [homePrice, setHomePrice] = useState(625000)
+  const [downPaymentPercent, setDownPaymentPercent] = useState(20)
   const [rate, setRate] = useState(5.24)
   const [years, setYears] = useState(25)
-  const [result, setResult] = useState({ monthly: 0, totalPaid: 0, totalInterest: 0 })
 
-  useEffect(() => {
-    setResult(calcPayment(amount, rate, years))
-  }, [amount, rate, years])
+  const loanAmount = useMemo(
+    () => Math.round(homePrice * (1 - downPaymentPercent / 100)),
+    [homePrice, downPaymentPercent]
+  )
 
-  const handleAmountChange = (val: number) => {
-    setAmount(val)
+  const result = useMemo(() => calcPayment(loanAmount, rate, years), [loanAmount, rate, years])
+
+  const handleHomePriceChange = (val: number) => {
+    setHomePrice(val)
   }
 
   const handleRateChange = (val: number) => {
     setRate(val)
   }
 
-  const amountInRange = amount >= 50000 && amount <= 2000000
+  const homePriceInRange = homePrice >= 100000 && homePrice <= 2500000
   const rateInRange = rate >= 0.5 && rate <= 10
+  const downPaymentInRange = downPaymentPercent >= 5 && downPaymentPercent <= 35
 
   return (
     <section id="calculator" className="py-16 sm:py-20 bg-white">
@@ -57,34 +70,64 @@ function Calculator() {
         </div>
 
         <div className="bg-navy-50 rounded-2xl p-6 sm:p-10 border border-navy-100">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-sm font-semibold text-navy-800 mb-2">Loan Amount</label>
-              <div className="relative">
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-navy-500 font-semibold">$</span>
+              <label className="block text-sm font-semibold text-navy-800 mb-2">Home Price</label>
+              <div className="flex rounded-lg border-[1.5px] border-[#d1d5db] bg-white overflow-hidden focus-within:border-[#2d559a] focus-within:shadow-[0_0_0_3px_rgba(45,85,154,0.12)]">
+                <span className="flex items-center px-3.5 text-navy-500 font-semibold bg-navy-50 border-r border-[#d1d5db] shrink-0">
+                  $
+                </span>
                 <input
-                  type="number"
-                  className="calc-input pl-8"
-                  value={amount}
-                  onChange={(e) => handleAmountChange(parseFloat(e.target.value) || 0)}
-                  min={50000}
-                  max={5000000}
-                  step={10000}
+                  type="text"
+                  inputMode="numeric"
+                  className="flex-1 px-3.5 py-2.5 text-[15px] outline-none bg-white min-w-0"
+                  value={formatAmountInput(homePrice)}
+                  onChange={(e) => handleHomePriceChange(parseAmountInput(e.target.value))}
+                  aria-label="Home price"
                 />
               </div>
               <input
                 type="range"
                 className="w-full mt-3"
-                min={50000}
-                max={2000000}
-                step={10000}
-                value={amountInRange ? amount : 500000}
-                onChange={(e) => handleAmountChange(parseFloat(e.target.value))}
+                min={100000}
+                max={2500000}
+                step={25000}
+                value={homePriceInRange ? homePrice : 625000}
+                onChange={(e) => handleHomePriceChange(parseFloat(e.target.value))}
               />
               <div className="flex justify-between text-xs text-navy-400 mt-1">
-                <span>$50K</span>
-                <span>$2M</span>
+                <span>$100K</span>
+                <span>$2.5M</span>
               </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-navy-800 mb-2">
+                Down Payment ({downPaymentPercent}%)
+              </label>
+              <div className="flex rounded-lg border-[1.5px] border-[#d1d5db] bg-white px-3.5 py-2.5 text-[15px] text-navy-700 font-semibold">
+                {formatCurrency(homePrice * (downPaymentPercent / 100))}
+              </div>
+              <input
+                type="range"
+                className="w-full mt-3"
+                min={5}
+                max={35}
+                step={1}
+                value={downPaymentInRange ? downPaymentPercent : 20}
+                onChange={(e) => setDownPaymentPercent(parseInt(e.target.value, 10))}
+              />
+              <div className="flex justify-between text-xs text-navy-400 mt-1">
+                <span>5%</span>
+                <span>35%</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+            <div>
+              <label className="block text-sm font-semibold text-navy-800 mb-2">Loan Amount</label>
+              <div className="calc-input bg-navy-100 border-navy-200 text-navy-800 font-semibold">{formatCurrency(loanAmount)}</div>
             </div>
 
             <div>

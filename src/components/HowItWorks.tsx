@@ -26,13 +26,21 @@ function HowItWorks() {
   return (
     <section id="how-it-works" className="py-16 sm:py-20 bg-navy-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <p className="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">Simple Process</p>
           <h2 className="font-display text-3xl sm:text-4xl text-navy-900">Three Steps to Your New Mortgage</h2>
           <div className="gold-line mx-auto mt-4"></div>
           <p className="text-navy-600 mt-4 max-w-xl mx-auto">
-            We've helped over 1,200 Ontario families navigate the mortgage process. Here's how simple we make it.
+            We've helped over 1,200 Canadian families navigate the mortgage process. Here's how simple we make it.
           </p>
+        </div>
+
+        <div className="rounded-2xl overflow-hidden mb-10 border border-navy-100 shadow-md">
+          <img
+            src="/images/how-it-works.jpg"
+            alt="Mortgage advisor reviewing documents with clients"
+            className="w-full h-48 sm:h-64 object-cover"
+          />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 relative">

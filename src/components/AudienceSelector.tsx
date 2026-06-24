@@ -5,6 +5,39 @@ interface AudienceSelectorProps {
   onSelect: (type: AudienceType) => void
 }
 
+const audiences: {
+  type: AudienceType
+  image: string
+  title: string
+  description: string
+  tags: string
+}[] = [
+  {
+    type: 'first-time',
+    image: '/images/audience-buyer.jpg',
+    title: 'First Time Buyer',
+    description:
+      "Step-by-step guidance from pre-approval to keys in hand. We'll walk you through every Canada-specific incentive available.",
+    tags: 'FHSA · RRSP Plan · Land Transfer Rebate →',
+  },
+  {
+    type: 'refinancing',
+    image: '/images/audience-refinance.jpg',
+    title: 'Refinancing',
+    description:
+      "Tap into your home equity or lower your monthly payments. We'll find you a better rate than your bank is offering.",
+    tags: 'Lower Payments · Debt Consolidation →',
+  },
+  {
+    type: 'investment',
+    image: '/images/audience-investment.jpg',
+    title: 'Property Investment',
+    description:
+      'Grow your Canadian portfolio with competitive rental property financing. Access lenders that specialize in investor clients.',
+    tags: 'Rental Properties · BRRRR · Multi-Unit →',
+  },
+]
+
 function AudienceSelector({ onSelect }: AudienceSelectorProps) {
   const [activeType, setActiveType] = useState<AudienceType | null>(null)
 
@@ -26,64 +59,27 @@ function AudienceSelector({ onSelect }: AudienceSelectorProps) {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          <div
-            className={`audience-card${activeType === 'first-time' ? ' active' : ''}`}
-            onClick={() => handleSelect('first-time')}
-          >
-            <div className="w-14 h-14 rounded-2xl bg-navy-50 flex items-center justify-center mx-auto mb-5">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3f7f" strokeWidth="1.8">
-                <path d="M3 10.5L12 3L21 10.5V20C21 20.55 20.55 21 20 21H15V15H9V21H4C3.45 21 3 20.55 3 20V10.5Z" />
-              </svg>
-            </div>
-            <h3 className="font-display text-lg text-navy-900 font-bold mb-2">First Time Buyer</h3>
-            <p className="text-navy-600 text-sm leading-relaxed">
-              Step-by-step guidance from pre-approval to keys in hand. We'll walk you through every Ontario-specific
-              incentive available.
-            </p>
-            <div className="mt-4 text-xs font-semibold text-gold-600 tracking-wide">
-              FHSA · RRSP Plan · Land Transfer Rebate →
-            </div>
-          </div>
-
-          <div
-            className={`audience-card${activeType === 'refinancing' ? ' active' : ''}`}
-            onClick={() => handleSelect('refinancing')}
-          >
-            <div className="w-14 h-14 rounded-2xl bg-navy-50 flex items-center justify-center mx-auto mb-5">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3f7f" strokeWidth="1.8">
-                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-              </svg>
-            </div>
-            <h3 className="font-display text-lg text-navy-900 font-bold mb-2">Refinancing</h3>
-            <p className="text-navy-600 text-sm leading-relaxed">
-              Tap into your home equity or lower your monthly payments. We'll find you a better rate than your bank is
-              offering.
-            </p>
-            <div className="mt-4 text-xs font-semibold text-gold-600 tracking-wide">
-              Lower Payments · Debt Consolidation →
-            </div>
-          </div>
-
-          <div
-            className={`audience-card${activeType === 'investment' ? ' active' : ''}`}
-            onClick={() => handleSelect('investment')}
-          >
-            <div className="w-14 h-14 rounded-2xl bg-navy-50 flex items-center justify-center mx-auto mb-5">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3f7f" strokeWidth="1.8">
-                <rect x="2" y="3" width="20" height="14" rx="2" />
-                <path d="M8 21h8M12 17v4" />
-                <polyline points="7 10 12 7 15 9 21 6" />
-              </svg>
-            </div>
-            <h3 className="font-display text-lg text-navy-900 font-bold mb-2">Property Investment</h3>
-            <p className="text-navy-600 text-sm leading-relaxed">
-              Grow your Ontario portfolio with competitive rental property financing. Access lenders that specialize in
-              investor clients.
-            </p>
-            <div className="mt-4 text-xs font-semibold text-gold-600 tracking-wide">
-              Rental Properties · BRRRR · Multi-Unit →
-            </div>
-          </div>
+          {audiences.map((audience) => (
+            <button
+              key={audience.type}
+              type="button"
+              className={`audience-card text-left p-0 overflow-hidden${activeType === audience.type ? ' active' : ''}`}
+              onClick={() => handleSelect(audience.type)}
+            >
+              <div className="h-36 overflow-hidden">
+                <img
+                  src={audience.image}
+                  alt=""
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6 pt-5 text-center">
+                <h3 className="font-display text-lg text-navy-900 font-bold mb-2">{audience.title}</h3>
+                <p className="text-navy-600 text-sm leading-relaxed">{audience.description}</p>
+                <div className="mt-4 text-xs font-semibold text-gold-600 tracking-wide">{audience.tags}</div>
+              </div>
+            </button>
+          ))}
         </div>
       </div>
     </section>
