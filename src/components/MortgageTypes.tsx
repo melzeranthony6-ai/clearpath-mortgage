@@ -4,35 +4,18 @@ const types = [
     description:
       'Lock in your rate for the full term. Predictable payments and peace of mind — ideal if you plan to stay in your home long-term.',
     badge: 'Most popular',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3f7f" strokeWidth="1.8">
-        <rect x="3" y="11" width="18" height="11" rx="2" />
-        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-      </svg>
-    ),
   },
   {
     title: 'Variable Rate',
     description:
       'Rate moves with prime. Often lower to start and great if you expect rates to fall or plan to sell within a few years.',
     badge: 'Lower entry rate',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3f7f" strokeWidth="1.8">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-      </svg>
-    ),
   },
   {
     title: 'HELOC',
     description:
       'Access your home equity as a revolving line of credit. Perfect for renovations, investments, or consolidating higher-interest debt.',
     badge: 'Flexible access',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3f7f" strokeWidth="1.8">
-        <rect x="2" y="5" width="20" height="14" rx="2" />
-        <line x1="2" y1="10" x2="22" y2="10" />
-      </svg>
-    ),
   },
 ]
 
@@ -55,9 +38,6 @@ function MortgageTypes() {
               key={type.title}
               className="bg-white rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-250"
             >
-              <div className="w-14 h-14 rounded-2xl bg-[#F3F4F6] flex items-center justify-center mb-4">
-                {type.icon}
-              </div>
               <span className="inline-block text-xs font-semibold text-navy-700 bg-gray-100 px-2.5 py-1 rounded-full mb-3">
                 {type.badge}
               </span>
