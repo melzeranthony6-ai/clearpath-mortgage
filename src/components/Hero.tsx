@@ -15,19 +15,6 @@ function Hero() {
               renewing your mortgage, ClearPath gets you approved — and in your home — with confidence.
             </p>
 
-            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 bg-[#0d2049] rounded-2xl px-6 py-4 mb-10 fade-up fade-up-delay-2">
-              <div className="text-left sm:text-center">
-                <p className="text-white/70 text-xs uppercase tracking-wider font-medium mb-0.5">Today's Featured Rate</p>
-                <p className="text-white font-display text-2xl sm:text-3xl font-bold">
-                  5-yr fixed from <span className="text-gold-400">4.89%</span>*
-                </p>
-              </div>
-              <div className="hidden sm:block w-px h-10 bg-white/20" />
-              <p className="text-white/60 text-[10px] sm:text-xs max-w-[200px] text-left sm:text-center leading-relaxed">
-                *Rates subject to change. OAC. Based on qualified applicants with 20% down.
-              </p>
-            </div>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center fade-up fade-up-delay-3">
               <a href="#form-section" className="btn-gold text-sm sm:text-base whitespace-nowrap w-full sm:w-auto justify-center">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -87,7 +74,21 @@ function Hero() {
             </div>
           </div>
 
-          <div className="relative h-72 sm:h-96 lg:h-[480px] fade-up fade-up-delay-2">
+          <div>
+            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 bg-[#0d2049] rounded-2xl px-6 py-4 mb-10 fade-up fade-up-delay-2">
+              <div className="text-left sm:text-center">
+                <p className="text-white/70 text-xs uppercase tracking-wider font-medium mb-0.5">Today's Featured Rate</p>
+                <p className="text-white font-display text-2xl sm:text-3xl font-bold">
+                  5-yr fixed from <span className="text-gold-400">4.89%</span>*
+                </p>
+              </div>
+              <div className="hidden sm:block w-px h-10 bg-white/20" />
+              <p className="text-white/60 text-[10px] sm:text-xs max-w-[200px] text-left sm:text-center leading-relaxed">
+                *Rates subject to change. OAC. Based on qualified applicants with 20% down.
+              </p>
+            </div>
+
+            <div className="relative h-72 sm:h-96 lg:h-[480px] fade-up fade-up-delay-2">
             <img
               src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80"
               alt=""
@@ -108,6 +109,7 @@ function Hero() {
               alt=""
               className="absolute left-8 sm:left-16 bottom-4 w-24 sm:w-[7.2rem] h-24 sm:h-[7.2rem] object-cover rounded-xl shadow-lg rotate-1 z-20"
             />
+            </div>
           </div>
         </div>
       </div>
