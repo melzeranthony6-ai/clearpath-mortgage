@@ -10,14 +10,14 @@ const steps = [
     num: 2,
     title: 'Get Approved',
     description:
-      'Your dedicated advisor shops your file across 50+ lenders — banks, credit unions, and monoline lenders — to find your lowest rate.',
+      'Your dedicated advisor shops your file across 50+ lenders, including banks, credit unions, and monoline lenders, to find your lowest rate.',
     badge: '50+ lenders compared',
   },
   {
     num: 3,
     title: 'Get Funded',
     description:
-      'We coordinate with your lawyer and lender from approval to close. Your keys — or funds — arrive on time, every time.',
+      'We coordinate with your lawyer and lender from approval to close. Your keys or funds arrive on time, every time.',
     badge: 'End-to-end support',
   },
 ]

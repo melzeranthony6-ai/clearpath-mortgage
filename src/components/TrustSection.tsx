@@ -20,7 +20,7 @@ const lenders = [
 const testimonials = [
   {
     quote:
-      '"As a first-time buyer in Mississauga, I was completely overwhelmed. ClearPath walked me through everything — the FHSA, the land transfer rebate — and got me a rate 0.4% lower than my bank offered. I closed in 28 days."',
+      '"As a first-time buyer in Mississauga, I was completely overwhelmed. ClearPath walked me through everything, from the FHSA to the land transfer rebate, and got me a rate 0.4% lower than my bank offered. I closed in 28 days."',
     photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80',
     name: 'Michael K.',
     location: 'Mississauga, ON · First Time Buyer',
@@ -74,7 +74,7 @@ function TrustSection() {
               <StarIcon key={i} size={24} />
             ))}
           </div>
-          <p className="text-navy-800 font-semibold">4.9 out of 5 — Based on 380+ client reviews</p>
+          <p className="text-navy-800 font-semibold">4.9 out of 5, based on 380+ client reviews</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 overflow-hidden rounded-2xl shadow-lg">

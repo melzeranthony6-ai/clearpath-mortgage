@@ -171,7 +171,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                 </div>
                 <h3 className="font-display text-2xl text-navy-900 font-bold mb-3">You're all set!</h3>
                 <p className="text-navy-700 text-base leading-relaxed mb-2">
-                  Thank you — we received your request. A licensed advisor will contact you within 5 minutes during
+                  Thank you. We received your request. A licensed advisor will contact you within 5 minutes during
                   business hours.
                 </p>
               </div>
@@ -308,7 +308,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
               <div key="step-3" className="form-step-enter">
                 <h3 className="font-display text-xl text-navy-900 font-bold mb-1">What's your employment type?</h3>
                 <p className="text-navy-500 text-sm mb-6">
-                  We work with all income types — including self-employed Canadians.
+                  We work with all income types, including self-employed Canadians.
                 </p>
                 <div className="grid grid-cols-1 gap-3">
                   {[

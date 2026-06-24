@@ -2,7 +2,7 @@ const types = [
   {
     title: 'Fixed Rate',
     description:
-      'Lock in your rate for the full term. Predictable payments and peace of mind — ideal if you plan to stay in your home long-term.',
+      'Lock in your rate for the full term. Predictable payments and peace of mind, ideal if you plan to stay in your home long-term.',
     badge: 'Most popular',
   },
   {
@@ -28,7 +28,7 @@ function MortgageTypes() {
           <h2 className="font-display text-4xl sm:text-5xl text-[#0d2049]">Mortgage Options We Compare</h2>
           <div className="section-line mx-auto mt-4"></div>
           <p className="text-[#4a5568] mt-4 max-w-xl mx-auto">
-            We help you choose the right product — not just the lowest rate.
+            We help you choose the right product, not just the lowest rate.
           </p>
         </div>
 

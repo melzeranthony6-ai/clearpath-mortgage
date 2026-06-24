@@ -4,17 +4,17 @@ const faqs = [
   {
     question: 'Does applying affect my credit score?',
     answer:
-      'Our initial online application does not require a credit check. A formal credit inquiry only happens when you choose to proceed with a full pre-approval with a specific lender — and we always explain this before it happens.',
+      'Our initial online application does not require a credit check. A formal credit inquiry only happens when you choose to proceed with a full pre-approval with a specific lender, and we always explain this before it happens.',
   },
   {
     question: 'How is a mortgage broker different from my bank?',
     answer:
-      'Your bank can only offer their own products. As a broker, we shop your file across 50+ lenders — banks, credit unions, and monoline lenders — to find the lowest rate and best terms for your situation. Our service is free for most residential mortgages.',
+      'Your bank can only offer their own products. As a broker, we shop your file across 50+ lenders, including banks, credit unions, and monoline lenders, to find the lowest rate and best terms for your situation. Our service is free for most residential mortgages.',
   },
   {
     question: 'Can self-employed people get approved?',
     answer:
-      'Yes. We specialize in self-employed and non-traditional income. We work with lenders who accept stated income, business bank statements, and alternative documentation — not just T4s.',
+      'Yes. We specialize in self-employed and non-traditional income. We work with lenders who accept stated income, business bank statements, and alternative documentation, not just T4s.',
   },
   {
     question: 'How long does the process take?',

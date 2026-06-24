@@ -24,7 +24,7 @@ function Footer() {
               </div>
               <p className="text-navy-400 text-sm leading-relaxed max-w-xs">
                 Helping Canadian families find better mortgage rates since 2018. Licensed, transparent, and always
-                working for you — not the banks.
+                working for you, not the banks.
               </p>
               <p className="text-navy-400 text-xs mt-5">
                 SSL Secured · FSRA Licensed · PIPEDA Compliant
