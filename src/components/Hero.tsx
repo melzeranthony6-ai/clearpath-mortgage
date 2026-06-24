@@ -91,22 +91,22 @@ function Hero() {
             <img
               src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80"
               alt=""
-              className="absolute right-4 lg:right-0 top-1/2 -translate-y-1/2 w-56 sm:w-64 lg:w-72 h-56 sm:h-64 lg:h-72 object-cover rounded-2xl shadow-xl z-10"
+              className="absolute right-4 lg:right-0 top-1/2 -translate-y-1/2 w-[16.8rem] sm:w-[19.2rem] lg:w-[21.6rem] h-[16.8rem] sm:h-[19.2rem] lg:h-[21.6rem] object-cover rounded-2xl shadow-xl z-10"
             />
             <img
               src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=300&q=80"
               alt=""
-              className="absolute left-0 sm:left-4 top-8 w-24 sm:w-28 h-24 sm:h-28 object-cover rounded-xl shadow-lg rotate-2 z-20"
+              className="absolute left-0 sm:left-4 top-8 w-[7.2rem] sm:w-[8.4rem] h-[7.2rem] sm:h-[8.4rem] object-cover rounded-xl shadow-lg rotate-2 z-20"
             />
             <img
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300&q=80"
               alt=""
-              className="absolute right-0 sm:right-2 bottom-8 w-20 sm:w-24 h-20 sm:h-24 object-cover rounded-xl shadow-lg -rotate-3 z-20"
+              className="absolute right-0 sm:right-2 bottom-8 w-24 sm:w-[7.2rem] h-24 sm:h-[7.2rem] object-cover rounded-xl shadow-lg -rotate-3 z-20"
             />
             <img
               src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=300&q=80"
               alt=""
-              className="absolute left-8 sm:left-16 bottom-4 w-20 sm:w-24 h-20 sm:h-24 object-cover rounded-xl shadow-lg rotate-1 z-20"
+              className="absolute left-8 sm:left-16 bottom-4 w-24 sm:w-[7.2rem] h-24 sm:h-[7.2rem] object-cover rounded-xl shadow-lg rotate-1 z-20"
             />
           </div>
         </div>
