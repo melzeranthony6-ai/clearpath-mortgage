@@ -21,21 +21,21 @@ const testimonials = [
   {
     quote:
       '"As a first-time buyer in Mississauga, I was completely overwhelmed. ClearPath walked me through everything — the FHSA, the land transfer rebate — and got me a rate 0.4% lower than my bank offered. I closed in 28 days."',
-    photo: '/images/testimonial-1.jpg',
+    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80',
     name: 'Michael K.',
     location: 'Mississauga, ON · First Time Buyer',
   },
   {
     quote:
       '"I\'m self-employed and my bank kept declining me. ClearPath found a lender that understood my income structure and approved me within a week. The whole process was smooth and they explained every step. Highly recommend."',
-    photo: '/images/testimonial-2.jpg',
+    photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80',
     name: 'Sandra L.',
     location: 'Hamilton, ON · Self-Employed Refinance',
   },
   {
     quote:
       '"We were renewing our mortgage on a duplex in Ottawa and our bank wouldn\'t budge on rate. ClearPath got us 85 basis points lower through First National. That\'s saving us $340 a month. Unbelievable service."',
-    photo: '/images/testimonial-3.jpg',
+    photo: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=600&q=80',
     name: 'David & Rachel T.',
     location: 'Ottawa, ON · Investment Property',
   },
@@ -78,12 +78,12 @@ function TrustSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 overflow-hidden rounded-2xl shadow-lg">
-          <div className="bg-[#0d2049] flex items-center justify-center p-10 sm:p-14">
-            <h3 className="font-display text-3xl sm:text-4xl text-white font-bold leading-tight text-center md:text-left">
-              Real clients.
-              <br />
-              Real results.
-            </h3>
+          <div className="min-h-[320px]">
+            <img
+              src={current.photo}
+              alt={current.name}
+              className="w-full h-full min-h-[320px] object-cover"
+            />
           </div>
 
           <div className="bg-white p-10 sm:p-14 flex flex-col justify-between min-h-[320px]">
