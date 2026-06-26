@@ -58,13 +58,12 @@ function TrustSection() {
 
         <div className="flex flex-wrap md:flex-nowrap justify-center gap-2 md:gap-3 mb-16">
           {lenders.map((lender) => (
-            <div key={lender.name} className="flex items-center justify-center w-[96px] md:w-[104px] h-[48px] md:h-[52px] rounded-xl bg-[#0d2049] text-white shrink-0">
-              <img
-                src={lender.logo}
-                alt={lender.name}
-                className="max-h-[28px] md:max-h-[30px] max-w-[72px] md:max-w-[80px] object-contain bg-white"
-              />
-            </div>
+            <img
+              key={lender.name}
+              src={lender.logo}
+              alt={lender.name}
+              className="max-h-[28px] md:max-h-[30px] max-w-[72px] md:max-w-[80px] object-contain shrink-0"
+            />
           ))}
         </div>
 
