@@ -15,11 +15,14 @@ function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-10 pb-10 border-b border-white/10">
             <div className="sm:col-span-2">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-navy-800 flex items-center justify-center shadow shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-[#0ea5e9] flex items-center justify-center shadow shrink-0">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
-                      d="M3 10.5L12 3L21 10.5V20C21 20.55 20.55 21 20 21H15V15H9V21H4C3.45 21 3 20.55 3 20V10.5Z"
-                      fill="#e0a800"
+                      d="M4 10.5L12 4l8 6.5V19a1 1 0 01-1 1h-5v-5H10v5H5a1 1 0 01-1-1V10.5z"
+                      stroke="#ffffff"
+                      strokeWidth="1.75"
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
                     />
                   </svg>
                 </div>
