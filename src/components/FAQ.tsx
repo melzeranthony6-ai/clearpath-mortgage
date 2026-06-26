@@ -74,13 +74,6 @@ function FAQ() {
             )
           })}
         </div>
-
-        <div className="text-center mt-10">
-          <p className="text-navy-600 text-sm mb-4">Still have questions?</p>
-          <a href="#form-section" className="btn-gold inline-flex text-sm">
-            Talk to an Advisor →
-          </a>
-        </div>
       </div>
     </section>
   )
