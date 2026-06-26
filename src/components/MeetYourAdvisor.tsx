@@ -31,7 +31,7 @@ function MeetYourAdvisor() {
                 {bullets.map((bullet) => (
                   <li key={bullet} className="flex items-start gap-3 text-navy-700 text-sm">
                     <svg
-                      className="w-5 h-5 text-gold-500 flex-shrink-0 mt-0.5"
+                      className="w-5 h-5 text-[#0ea5e9] flex-shrink-0 mt-0.5"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"

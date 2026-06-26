@@ -67,7 +67,7 @@ function AudienceSelector({ onSelect }: AudienceSelectorProps) {
               <div className="mt-auto pt-2 text-left">
                 <span
                   style={{
-                    backgroundColor: '#e0a800',
+                    backgroundColor: '#0ea5e9',
                     color: '#0d2049',
                     fontWeight: 600,
                     padding: '4px 12px',

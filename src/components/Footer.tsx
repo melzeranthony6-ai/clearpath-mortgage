@@ -35,27 +35,27 @@ function Footer() {
               <h4 className="font-semibold text-white text-sm mb-4 tracking-wide">Quick Links</h4>
               <ul className="space-y-2.5 text-sm text-navy-400">
                 <li>
-                  <a href="#form-section" className="hover:text-gold-400 transition-colors">
+                  <a href="#form-section" className="hover:text-[#0ea5e9] transition-colors">
                     Get Pre-Approved
                   </a>
                 </li>
                 <li>
-                  <a href="#calculator" className="hover:text-gold-400 transition-colors">
+                  <a href="#calculator" className="hover:text-[#0ea5e9] transition-colors">
                     Mortgage Calculator
                   </a>
                 </li>
                 <li>
-                  <a href="#how-it-works" className="hover:text-gold-400 transition-colors">
+                  <a href="#how-it-works" className="hover:text-[#0ea5e9] transition-colors">
                     How It Works
                   </a>
                 </li>
                 <li>
-                  <a href="#testimonials" className="hover:text-gold-400 transition-colors">
+                  <a href="#testimonials" className="hover:text-[#0ea5e9] transition-colors">
                     Client Reviews
                   </a>
                 </li>
                 <li>
-                  <a href="#faq" className="hover:text-gold-400 transition-colors">
+                  <a href="#faq" className="hover:text-[#0ea5e9] transition-colors">
                     FAQ
                   </a>
                 </li>
@@ -67,13 +67,13 @@ function Footer() {
               <ul className="space-y-3 text-sm text-navy-400">
                 <li>
                   <span className="text-navy-300">Phone:</span>{' '}
-                  <a href={`tel:${PHONE_TEL}`} className="hover:text-gold-400 transition-colors">
+                  <a href={`tel:${PHONE_TEL}`} className="hover:text-[#0ea5e9] transition-colors">
                     {PHONE_DISPLAY}
                   </a>
                 </li>
                 <li>
                   <span className="text-navy-300">Email:</span>{' '}
-                  <a href="mailto:info@clearpathmortgage.ca" className="hover:text-gold-400 transition-colors">
+                  <a href="mailto:info@clearpathmortgage.ca" className="hover:text-[#0ea5e9] transition-colors">
                     info@clearpathmortgage.ca
                   </a>
                 </li>
@@ -98,7 +98,7 @@ function Footer() {
               <button
                 type="button"
                 onClick={() => setPrivacyOpen(true)}
-                className="hover:text-gold-400 transition-colors underline-offset-2 hover:underline"
+                className="hover:text-[#0ea5e9] transition-colors underline-offset-2 hover:underline"
               >
                 Privacy Policy
               </button>{' '}
@@ -106,7 +106,7 @@ function Footer() {
               <button
                 type="button"
                 onClick={() => setTermsOpen(true)}
-                className="hover:text-gold-400 transition-colors underline-offset-2 hover:underline"
+                className="hover:text-[#0ea5e9] transition-colors underline-offset-2 hover:underline"
               >
                 Terms of Use
               </button>

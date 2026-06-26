@@ -71,7 +71,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
   }
 
   const getConnectorStyle = (connectorIndex: number) => ({
-    background: connectorIndex < currentStep ? 'linear-gradient(90deg,#e0a800,#efc34c)' : '#e2e8f0',
+    background: connectorIndex < currentStep ? 'linear-gradient(90deg,#0ea5e9,#38bdf8)' : '#e2e8f0',
   })
 
   const handleOptionChange = (group: string, value: string) => {
@@ -234,7 +234,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                     <label
                       key={opt.value}
                       className={`option-btn flex items-center gap-4 p-4 border-2 rounded-xl cursor-pointer hover:border-navy-400 transition-colors ${
-                        isOptionSelected('goal', opt.value) ? 'border-gold-500 bg-gold-50' : 'border-navy-100'
+                        isOptionSelected('goal', opt.value) ? 'border-[#0ea5e9] bg-gold-50' : 'border-navy-100'
                       }`}
                     >
                       <input
@@ -277,7 +277,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                     <label
                       key={opt.value}
                       className={`option-btn flex items-center gap-4 p-4 border-2 rounded-xl cursor-pointer hover:border-navy-400 transition-colors ${
-                        isOptionSelected('propval', opt.value) ? 'border-gold-500 bg-gold-50' : 'border-navy-100'
+                        isOptionSelected('propval', opt.value) ? 'border-[#0ea5e9] bg-gold-50' : 'border-navy-100'
                       }`}
                     >
                       <input
@@ -320,7 +320,7 @@ function LeadForm({ preselectedGoal }: LeadFormProps) {
                     <label
                       key={opt.value}
                       className={`option-btn flex items-center gap-4 p-4 border-2 rounded-xl cursor-pointer hover:border-navy-400 transition-colors ${
-                        isOptionSelected('employment', opt.value) ? 'border-gold-500 bg-gold-50' : 'border-navy-100'
+                        isOptionSelected('employment', opt.value) ? 'border-[#0ea5e9] bg-gold-50' : 'border-navy-100'
                       }`}
                     >
                       <input

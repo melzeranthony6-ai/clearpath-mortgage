@@ -79,7 +79,7 @@ function Hero() {
                 <div className="text-left sm:text-center">
                   <p className="text-white/70 text-xs uppercase tracking-wider font-medium mb-0.5">Today's Featured Rate</p>
                   <p className="text-white font-display text-xl sm:text-2xl font-bold">
-                    5-yr fixed from <span className="text-gold-400">4.89%</span>*
+                    5-yr fixed from <span className="text-[#0ea5e9]">4.89%</span>*
                   </p>
                 </div>
               </div>
