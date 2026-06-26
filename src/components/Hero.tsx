@@ -83,26 +83,47 @@ function Hero() {
                 </div>
               </div>
             </div>
-            <img
-              src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80"
-              alt=""
-              className="absolute right-4 lg:right-0 top-1/2 -translate-y-1/2 w-[16.8rem] sm:w-[19.2rem] lg:w-[21.6rem] h-[16.8rem] sm:h-[19.2rem] lg:h-[21.6rem] object-cover rounded-2xl shadow-xl z-10"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=300&q=80"
-              alt=""
-              className="absolute left-0 sm:left-4 top-8 w-[7.2rem] sm:w-[8.4rem] h-[7.2rem] sm:h-[8.4rem] object-cover rounded-xl shadow-lg rotate-2 z-20"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300&q=80"
-              alt=""
-              className="absolute right-0 sm:right-2 bottom-8 w-24 sm:w-[7.2rem] h-24 sm:h-[7.2rem] object-cover rounded-xl shadow-lg -rotate-3 z-20"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=300&q=80"
-              alt=""
-              className="absolute left-8 sm:left-16 bottom-4 w-24 sm:w-[7.2rem] h-24 sm:h-[7.2rem] object-cover rounded-xl shadow-lg rotate-1 z-20"
-            />
+            <div
+              className="absolute right-4 lg:right-0 top-1/2 -translate-y-1/2 w-[16.8rem] sm:w-[19.2rem] lg:w-[21.6rem] h-[16.8rem] sm:h-[19.2rem] lg:h-[21.6rem] rounded-2xl z-10 overflow-hidden"
+              style={{ boxShadow: '0 25px 60px rgba(0,0,0,0.35), 0 10px 20px rgba(0,0,0,0.2)' }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80"
+                alt=""
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-b from-transparent to-[rgba(0,0,0,0.15)] pointer-events-none" />
+            </div>
+            <div
+              className="absolute left-0 sm:left-4 top-8 w-[7.2rem] sm:w-[8.4rem] h-[7.2rem] sm:h-[8.4rem] rounded-xl rotate-2 z-20"
+              style={{ boxShadow: '0 25px 60px rgba(0,0,0,0.5), 0 10px 20px rgba(0,0,0,0.35)' }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=300&q=80"
+                alt=""
+                className="w-full h-full object-cover rounded-xl"
+              />
+            </div>
+            <div
+              className="absolute right-0 sm:right-2 bottom-8 w-24 sm:w-[7.2rem] h-24 sm:h-[7.2rem] rounded-xl -rotate-3 z-20"
+              style={{ boxShadow: '0 25px 60px rgba(0,0,0,0.5), 0 10px 20px rgba(0,0,0,0.35)' }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300&q=80"
+                alt=""
+                className="w-full h-full object-cover rounded-xl"
+              />
+            </div>
+            <div
+              className="absolute left-8 sm:left-16 bottom-4 w-24 sm:w-[7.2rem] h-24 sm:h-[7.2rem] rounded-xl rotate-1 z-20"
+              style={{ boxShadow: '0 25px 60px rgba(0,0,0,0.5), 0 10px 20px rgba(0,0,0,0.35)' }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=300&q=80"
+                alt=""
+                className="w-full h-full object-cover rounded-xl"
+              />
+            </div>
           </div>
         </div>
       </div>
