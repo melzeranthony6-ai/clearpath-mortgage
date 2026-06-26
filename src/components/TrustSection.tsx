@@ -22,6 +22,7 @@ const testimonials = [
     quote:
       '"As a first-time buyer in Mississauga, I was completely overwhelmed. ClearPath walked me through everything, from the FHSA to the land transfer rebate, and got me a rate 0.4% lower than my bank offered. I closed in 28 days."',
     photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80',
+    propertyPhoto: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80',
     name: 'Michael K.',
     location: 'Mississauga, ON · First Time Buyer',
   },
@@ -29,6 +30,7 @@ const testimonials = [
     quote:
       '"I\'m self-employed and my bank kept declining me. ClearPath found a lender that understood my income structure and approved me within a week. The whole process was smooth and they explained every step. Highly recommend."',
     photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80',
+    propertyPhoto: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80',
     name: 'Sandra L.',
     location: 'Hamilton, ON · Self-Employed Refinance',
   },
@@ -36,6 +38,7 @@ const testimonials = [
     quote:
       '"We were renewing our mortgage on a duplex in Ottawa and our bank wouldn\'t budge on rate. ClearPath got us 85 basis points lower through First National. That\'s saving us $340 a month. Unbelievable service."',
     photo: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=600&q=80',
+    propertyPhoto: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80',
     name: 'David & Rachel T.',
     location: 'Ottawa, ON · Investment Property',
   },
@@ -79,7 +82,7 @@ function TrustSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 overflow-hidden rounded-2xl shadow-lg">
           <div className="relative h-48 sm:h-56 md:h-full overflow-hidden">
             <img
-              src={current.photo}
+              src={current.propertyPhoto}
               alt={current.name}
               className="absolute inset-0 w-full h-full object-cover"
             />
