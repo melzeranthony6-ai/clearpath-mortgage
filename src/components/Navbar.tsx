@@ -95,9 +95,6 @@ function Navbar() {
           <a href="#testimonials" onClick={closeMobileMenu} className="py-2 border-b border-navy-50">
             Reviews
           </a>
-          <a href="#form-section" onClick={closeMobileMenu} className="btn-gold text-center mt-2">
-            Get Pre-Approved
-          </a>
         </div>
       </div>
     </nav>
