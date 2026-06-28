@@ -10,7 +10,6 @@ import Calculator from './components/Calculator'
 import MortgageTypes from './components/MortgageTypes'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
-import StickyMobileCTA from './components/StickyMobileCTA'
 import ChatWidget from './components/ChatWidget'
 import type { AudienceType } from './types'
 
@@ -43,7 +42,6 @@ function App() {
       <LeadForm preselectedGoal={preselectedGoal} />
       <FAQ />
       <Footer />
-      <StickyMobileCTA />
       <ChatWidget />
     </div>
   )
