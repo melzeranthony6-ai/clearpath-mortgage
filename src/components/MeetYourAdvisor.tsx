@@ -19,7 +19,7 @@ function MeetYourAdvisor() {
               <div className="absolute inset-0 bg-gradient-to-t from-navy-900/40 to-transparent md:hidden" />
             </div>
 
-            <div className="md:col-span-3 p-8 sm:p-10 flex flex-col justify-center">
+            <div className="md:col-span-3 p-8 sm:p-10 flex flex-col items-start justify-center">
               <p className="text-[#6b7280] font-semibold text-sm tracking-widest uppercase mb-2">Your Advisor</p>
               <h2 className="font-display text-3xl sm:text-4xl text-navy-900 mb-1">Meet James Morrison</h2>
               <p className="text-navy-600 font-medium text-sm mb-6">
@@ -44,7 +44,7 @@ function MeetYourAdvisor() {
                 ))}
               </ul>
 
-              <a href="#form-section" className="btn-gold inline-flex w-fit self-start text-sm">
+              <a href="#form-section" className="btn-gold inline-flex w-fit text-left text-sm">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15.92z" />
                 </svg>
