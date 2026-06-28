@@ -132,7 +132,7 @@ function ChatWidget() {
       {/* Floating button */}
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`fixed bottom-24 md:bottom-6 right-4 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(19,46,98,0.35)] transition-all duration-200 hover:scale-105 active:scale-95 ${
+        className={`fixed bottom-6 right-4 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(19,46,98,0.35)] transition-all duration-200 hover:scale-105 active:scale-95 ${
           isOpen ? 'bg-navy-700' : 'bg-navy-800 hover:bg-navy-700'
         }`}
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
