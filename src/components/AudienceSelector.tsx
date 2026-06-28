@@ -65,16 +65,7 @@ function AudienceSelector({ onSelect }: AudienceSelectorProps) {
               <h3 className="font-display text-lg text-white font-bold mb-1 text-left min-h-10 leading-tight">{audience.title}</h3>
               <p className="text-gray-300 text-base leading-snug text-left flex-1">{audience.description}</p>
               <div className="mt-auto pt-2 text-left">
-                <span
-                  style={{
-                    backgroundColor: '#0ea5e9',
-                    color: '#0d2049',
-                    fontWeight: 600,
-                    padding: '4px 12px',
-                    borderRadius: '999px',
-                    fontSize: '11px',
-                  }}
-                >
+                <span className="inline-block rounded-full bg-[#0ea5e9] text-[#0d2049] font-semibold py-3 px-5 text-base sm:py-1 sm:px-3 sm:text-[11px]">
                   {audience.tags}
                 </span>
               </div>
