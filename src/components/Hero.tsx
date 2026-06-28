@@ -40,14 +40,14 @@ function Hero() {
 
             <div className="block md:hidden mt-6">
               <img
-                src="https://images.unsplash.com/photo-1570129477492-45c003dc79bd?w=800&q=80"
+                src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80"
                 alt=""
                 className="w-full h-56 rounded-xl object-cover"
               />
             </div>
 
-            <div className="flex flex-row flex-wrap md:flex-nowrap justify-center lg:justify-start items-center mt-14 fade-up fade-up-delay-3">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-[#4a5568] whitespace-nowrap pl-0 pr-3 sm:pr-6">
+            <div className="flex flex-row flex-wrap max-md:justify-evenly max-md:items-center max-md:gap-y-3 max-md:w-full md:flex-nowrap md:justify-start lg:justify-start mt-14 fade-up fade-up-delay-3">
+              <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-[#4a5568] whitespace-nowrap max-md:basis-full max-md:px-0 min-[420px]:max-md:basis-auto pl-0 pr-3 sm:pr-6">
                 <svg className="hidden md:block" width="16" height="16" viewBox="0 0 24 24" fill="#0d2049">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
@@ -55,8 +55,8 @@ function Hero() {
                   <strong className="text-[#0d2049]">4.9/5</strong> Rating
                 </span>
               </div>
-              <div className="w-px h-6 bg-gray-300 shrink-0" />
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-[#4a5568] whitespace-nowrap px-3 sm:px-6">
+              <div className="hidden md:block w-px h-6 bg-gray-300 shrink-0" />
+              <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-[#4a5568] whitespace-nowrap max-md:basis-full max-md:px-0 min-[420px]:max-md:basis-auto px-3 sm:px-6">
                 <svg className="hidden md:block" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d2049" strokeWidth="2">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
@@ -67,8 +67,8 @@ function Hero() {
                   <strong className="text-[#0d2049]">1,200+</strong> Approvals Closed
                 </span>
               </div>
-              <div className="w-px h-6 bg-gray-300 shrink-0" />
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-[#4a5568] whitespace-nowrap pl-3 sm:pl-6 pr-0">
+              <div className="hidden md:block w-px h-6 bg-gray-300 shrink-0" />
+              <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-[#4a5568] whitespace-nowrap max-md:basis-full max-md:px-0 min-[420px]:max-md:basis-auto pl-3 sm:pl-6 pr-0">
                 <svg className="hidden md:block" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d2049" strokeWidth="2">
                   <rect x="3" y="3" width="18" height="18" rx="2" />
                   <path d="M3 9h18" />
