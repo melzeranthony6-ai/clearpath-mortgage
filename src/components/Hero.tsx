@@ -38,6 +38,14 @@ function Hero() {
               </a>
             </div>
 
+            <div className="block md:hidden mt-6">
+              <img
+                src="https://images.unsplash.com/photo-1570129477492-45c003dc79bd?w=800&q=80"
+                alt=""
+                className="w-full h-56 rounded-xl object-cover"
+              />
+            </div>
+
             <div className="flex flex-row flex-wrap md:flex-nowrap justify-center lg:justify-start items-center mt-14 fade-up fade-up-delay-3">
               <div className="flex items-center gap-2 text-xs sm:text-sm text-[#4a5568] whitespace-nowrap pl-0 pr-3 sm:pr-6">
                 <svg className="hidden md:block" width="16" height="16" viewBox="0 0 24 24" fill="#0d2049">
@@ -73,7 +81,7 @@ function Hero() {
             </div>
           </div>
 
-          <div className="relative h-72 sm:h-96 lg:h-[480px] fade-up fade-up-delay-2">
+          <div className="hidden md:block relative h-72 sm:h-96 lg:h-[480px] fade-up fade-up-delay-2">
             <div className="absolute right-4 lg:right-0 bottom-[calc(50%+8.4rem+0.75rem)] sm:bottom-[calc(50%+9.6rem+0.75rem)] lg:bottom-[calc(50%+10.8rem+0.75rem)] z-30 fade-up fade-up-delay-2">
               <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-[#0d2049] rounded-2xl px-5 py-3">
                 <div className="text-left sm:text-center">
